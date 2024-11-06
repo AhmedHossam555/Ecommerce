@@ -1,0 +1,25 @@
+$main-color: #a6a6a6;
+
+i {
+    color: $main-color;
+    margin-right: 10px;
+}
+.help {
+    color: white;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: $main-color;
+    text-align: center;
+    line-height: 18px;
+}
+a {
+    text-decoration: none;
+}
+.header-top span {
+    font-size: 12px;
+    font-weight: 600;
+}
+ input:focus {
+    outline: none;
+}
