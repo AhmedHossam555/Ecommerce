@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Importing Bootstrap SCSS file. */
+
 @import 'bootstrap/scss/bootstrap';
 $main-color: #ff8100;
 $second-color: #444;
@@ -13,8 +14,11 @@ body {
 .text-main {
     color: $main-color !important;
 }
+.text-second {
+    color: $second-color !important;
+}
 .bg-main {
-    background-color: $main-color;
+    background-color: $main-color !important;
 }
 
 .color-link {
