@@ -1,9 +1,10 @@
-import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
+import { Component, EventEmitter, inject, OnInit, Output, signal, WritableSignal } from '@angular/core';
 import { HeaderComponent } from "../header/header.component";
 import { MainLayoutComponent } from "../main-layout/main-layout.component";
 import { ProductService } from '../../../shared/services/product.service';
 import { Product } from '../../../shared/interfaces/product';
 import { CurrencyPipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-products',
@@ -13,6 +14,7 @@ import { CurrencyPipe } from '@angular/common';
   styleUrl: './products.component.scss'
 })
 export class ProductsComponent implements OnInit {
+ 
   products: WritableSignal<Product[]> = signal([]);
   private _ProductService = inject(ProductService);
   ngOnInit(): void {
@@ -23,7 +25,7 @@ export class ProductsComponent implements OnInit {
     this._ProductService.getProduct().subscribe({
       next: (res)=>{
         console.log(res);
-        this.products.set(res)
+        this.products.set(res);
       }
     })
   }
