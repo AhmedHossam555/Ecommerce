@@ -28,7 +28,7 @@
                     <div class="image-card" style="height: 227px;cursor: pointer;">
                         <img [src]="product.images[0]" onerror="this.onerror=null; this.src='../../../../assets/images/ImageNotFound.png'" alt="" class="w-100 h-100">
                         <img [src]="product.images[1]" onerror="this.onerror=null; this.src='../../../../assets/images/ImageNotFound.png'" alt="" class="w-100 h-100">
-                        <button type="button" class="fav-icon circle-icon">
+                        <button type="button" class="fav-icon circle-icon" (click)="addToWishList($event)">
                             <i class="fa-solid fa-heart"></i>
                         </button>
                     </div>
@@ -52,7 +52,7 @@
                         <span class="price">
                             {{product.price | currency}}
                         </span>
-                        <button type="button" class="cart">
+                        <button type="button" class="cart" >
                             <i class="fa-solid fa-cart-shopping"></i>
                         </button>
                     </div>
