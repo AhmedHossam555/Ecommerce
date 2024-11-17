@@ -24,3 +24,10 @@ body {
 .color-link {
     color: $second-color;
 }
+.fav-icon.fav {
+    transform: translateX(0) !important;
+    background-color: #fb5231;
+    color: white;
+    z-index: 5555 !important;
+    
+}

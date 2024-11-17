@@ -2,6 +2,7 @@ import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core
 import { ProductService } from '../../../shared/services/product.service';
 import { Product } from '../../../shared/interfaces/product';
 import { CurrencyPipe } from '@angular/common';
+import { WishlistService } from '../../../shared/services/wishList/wishlist.service';
 
 @Component({
   selector: 'app-products',
@@ -14,16 +15,19 @@ export class ProductsComponent implements OnInit {
  
   products: WritableSignal<Product[]> = signal([]);
   private _ProductService = inject(ProductService);
+  private _WishlistService = inject(WishlistService);
   ngOnInit(): void {
     this.getALlProduct();
   }
-  addToWishList(event:Event){
+  addToWishList(event:Event,product:Product){
     const icon = event.target as HTMLElement;
     const parent = icon.parentElement as HTMLElement;
-    if(parent.classList.contains('fav')){
+     if(parent.classList.contains('fav')){
       parent.classList.remove('fav');
+      this._WishlistService.removeFromWishList(product);
     }else{
       parent.classList.add('fav');
+      this._WishlistService.addToWishList(product);
     }
   }
 
