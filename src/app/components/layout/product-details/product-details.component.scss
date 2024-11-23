@@ -113,3 +113,14 @@ $icon-color: #fb5231;
         margin-top: -80px;
     }
 }
+::ng-deep .ngxImageZoomContainer {
+    width: 100% !important;
+    height: auto !important;
+}
+::ng-deep .ngxImageZoomContainer > img{
+    object-fit: cover; 
+    width: 100%;
+}
+::ng-deep .ngxImageZoomContainer > img:hover {
+    cursor: zoom-in;
+}
