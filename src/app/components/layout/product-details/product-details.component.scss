@@ -108,3 +108,8 @@ $icon-color: #fb5231;
     background-color: #ff8100;
     color: white;
 }
+@media (min-width: 992px) {
+    .header {
+        margin-top: -80px;
+    }
+}

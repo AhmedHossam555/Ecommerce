@@ -8,10 +8,10 @@
         </div>
     </div>
 </div>
-<div class="container mt-5">
-    <div class="row gap-4">
-        <div class="col-3">
-            <img [src]="selectedImage || product?.images" alt=""  class="w-100 " style="height: 80%; object-fit: cover;">
+<div class="container mt-5  px-lg-5   ">
+    <div class="row gap-4 ">
+        <div class="col-xs-12 col-md-3  col-lg-4">
+            <img [src]="selectedImage || product?.images" alt=""  class="w-100 " style=" object-fit: cover; width: 356px;">
             <owl-carousel-o [options]="customOptions" >
                 @for (slide of product?.images ; track $index) {
                     <ng-template carouselSlide>
@@ -22,7 +22,7 @@
             </owl-carousel-o>
 
         </div>
-        <div class="col-6 ">
+        <div class="col-xs-12 col-lg-6 ">
             <h4>
                 {{product?.title}}
             </h4>
@@ -82,18 +82,17 @@
                 <option value="medium">Medium</option>
                 <option value="large">Large</option>
             </select>
-            <button class="btn bg-main text-white me-3">
+            <button class="btn bg-main text-white me-3 mb-3 mb-md-0">
                 <i class="fa fa-shopping-basket"></i>
                 Add to cart
             </button>
-            <button class="btn btn-light">
+            <button class="btn btn-light mb-3 mb-md-0">
                 <i class="fa-regular fa-heart text-danger"></i>
                 Save
             </button>
         </div>
     </div>
-
-    <div class="text-center py-5">
+    <div class="text-center pb-2 header mt-0" >
         <h6 class="text-main text-uppercase fw-bolder">
             Best Match
         </h6>
@@ -101,7 +100,7 @@
             Related Products
         </h1>
     </div>
-    <div class="row carts overflow-hidden">
+    <div class="row carts overflow-hidden ">
         <owl-carousel-o [options]="custom2">
             @for (product of CategorieProduct(); track $index) {
                 <ng-template carouselSlide>
@@ -150,9 +149,7 @@
         </owl-carousel-o>
     
     </div>
-
- 
-     </div>
+ </div>
 
    
   
