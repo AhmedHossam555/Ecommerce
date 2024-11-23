@@ -11,8 +11,10 @@ export class ProductService {
   getProduct():Observable<any>{
     return this._HttpClient.get(`${Enviroment.baseUrl}/products?offset=0&limit=${this.limit()}`);
   }
-  getCategories(id: string):Observable<any>{
-    return this._HttpClient.get(`${Enviroment.baseUrl}/categories/${id}/products`);
-
+  getSingleProduct(id: string):Observable<any>{
+    return this._HttpClient.get(`${Enviroment.baseUrl}/products/${id}`);
+  }
+  getProductCategories(id:any): Observable<any>{
+    return this._HttpClient.get(`${Enviroment.baseUrl}/categories/${id}/products`)
   }
 }

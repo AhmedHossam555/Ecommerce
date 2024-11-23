@@ -2,7 +2,10 @@
 
 /* Importing Bootstrap SCSS file. */
 
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
 @import 'bootstrap/scss/bootstrap';
+
 $main-color: #ff8100;
 $second-color: #444;
 html {

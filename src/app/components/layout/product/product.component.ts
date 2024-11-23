@@ -13,7 +13,6 @@ import { Product } from '../../../shared/interfaces/product';
 export class ProductComponent{
   private _WishlistService = inject(WishlistService);
   isWish:WritableSignal<boolean> = signal(false);
-
   @Input({required: true}) product:any;
   ngOnInit() {
   this.filter();
