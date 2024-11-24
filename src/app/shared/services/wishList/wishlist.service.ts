@@ -20,7 +20,6 @@ export class WishlistService {
       }
     })
     window.localStorage.setItem('wishlist',JSON.stringify(this.wishListProd));
-    console.log(this.wishListProd);
-    console.log('remove');
+  
   }
 }

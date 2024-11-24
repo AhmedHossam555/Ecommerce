@@ -31,7 +31,7 @@ body {
     transform: translateX(0) !important;
     background-color: #fb5231;
     color: white;
-    z-index: 5555 !important;
+   
 }
 .sticky {
     position: sticky;
@@ -50,3 +50,15 @@ body {
     }
 }
 
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    min-height: 100%;
+}
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+  }

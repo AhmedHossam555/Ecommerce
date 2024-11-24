@@ -1,0 +1,46 @@
+.cart {
+    width: 400px;
+    height: 100vh;
+    position: fixed;
+    right: -500px ;
+    top: 0;
+    background-color: white;
+    z-index: 55555;
+    transition: all 0.4s ease;
+}
+.footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+.cart.active {
+    right: 0;
+}
+.cart .close {
+    transition: all 0.3s ease;
+}
+.cart .close:hover {
+    color: #000;
+    font-size: 20px;
+}
+.cart :where(.header, .footer) {
+    padding: 22px 35px;
+}
+.cart .footer button{
+    margin-top: 18px;
+    transition: all 0.3s ease !important;
+    &:hover {
+        color: #000 !important;
+    }
+}
+
+.cart .body {
+    padding: 25px 40px;
+}
+.cart .body > div {
+    padding-bottom: 30px;
+}
+.cart .body > div {
+    border-bottom: 1px solid #ccc;
+}
