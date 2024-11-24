@@ -7,6 +7,7 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class WishlistService {
   private _plat = inject(PLATFORM_ID);
+  wishlistNum
   wishListProd:Product[]  = isPlatformBrowser(this._plat) ? JSON.parse(window.localStorage.getItem('wishlist') || '[]'): [];
   constructor() { }
   addToWishList(product:Product){
