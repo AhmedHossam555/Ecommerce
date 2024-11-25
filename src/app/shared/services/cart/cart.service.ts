@@ -7,10 +7,11 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService  {
   private _plat = inject(PLATFORM_ID);
-  cartNum = new BehaviorSubject(0);
+  cartNum = new BehaviorSubject<number>(0);
   cart:Product[] = isPlatformBrowser(this._plat)? JSON.parse(window.localStorage.getItem('cart') || '[]'): [];
   constructor(){
      this.cartNum.next(this.cart.length);
+     this.totalPrice();
   }
   addProductToCart(product:Product){
     this.cart.push(product)
@@ -22,6 +23,14 @@ export class CartService  {
 
     window.localStorage.setItem('cart',JSON.stringify(this.cart));
   }
+  updateProduct(product:Product){
+    this.cart.forEach((ele,index)=>{
+      if(ele.id === product.id){
+        this.cart.splice(index,1,product);
+      }
+    })
+    window.localStorage.setItem('cart',JSON.stringify(this.cart));
+  }
   removeProductFromCart(product:Product){
      this.cart.map((ele:any,index:number)=>{
       if(product.id == ele.id){
@@ -31,5 +40,12 @@ export class CartService  {
      this.cartNum.next(this.cart.length);
 
     window.localStorage.setItem('cart',JSON.stringify(this.cart));
+  }
+  totalPrice():number{
+    let sum=0;
+    this.cart.forEach((ele)=>{
+      sum+= ele.quantity! * ele.price;
+    })
+    return sum;
   }
 }

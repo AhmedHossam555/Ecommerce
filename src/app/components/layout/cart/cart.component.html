@@ -16,14 +16,19 @@
                         {{product.title.split(" ").slice(0,2).join(" ")}}...
                     </p>
                     <p >
-                        {{product.price}}
+                        {{product.price | currency}}
                     </p>
-                    <p class="bg-main rounded-5 p-2  px-3 text-white control ">
-                        <i class="fa-solid fa-minus"></i>
-                        <span>
-                            1
+                    <p class="bg-main rounded-5 p-2  px-3 text-white control">
+                        <button class="border-0 bg-main" type="button" >
+                            <i class="fa-solid fa-minus text-white"></i>
+                        </button>
+                        <span class="quantity">
+                            {{product.quantity}}
                         </span>
-                        <i class="fa-solid fa-plus"></i>
+                        <button class="border-0 bg-main" type="button" (click)="updateQuantity(product.quantity!,product, '+')">
+                            <i class="fa-solid fa-plus text-white"></i>
+                        </button>
+                     
                     </p>
                 </div>
                 <button class="border-0 bg-white  text-second" type="button" (click)="removeProductFromCart(product)">
@@ -37,7 +42,7 @@
     <div class="footer  border-top">
         <div class="d-flex justify-content-between">
             <span class="text-uppercase fw-bold">Total:</span>
-            <span class="fw-bolder">$272</span>
+            <span class="fw-bolder">{{total() | currency}}</span>
         </div>
         <button type="button" class="btn bg-main w-100 text-white rounded-5">CheckOut</button>
     </div>

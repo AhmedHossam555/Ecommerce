@@ -21,10 +21,7 @@ export class ProductComponent{
   @Input({required: true}) product:any;
   constructor(private toast: HotToastService) {}
   ngOnInit() {
-    
       this.filter();
-
-     
   }
   filter(){
     const productWish:any[] = isPlatformBrowser(this._plat)? JSON.parse(window.localStorage.getItem('wishlist') || '[]') : [];
@@ -49,11 +46,14 @@ export class ProductComponent{
   }
 
   addToCart(product:Product){
+    const cartItem:Product = {
+      ...product,
+      quantity: 1
+    }
+   
     this.toast.success('Product added to cart successfully',{
       position:'top-left',
     })
-    this._CartService.addProductToCart(product);
+    this._CartService.addProductToCart(cartItem);
   }
-  
-
 }
