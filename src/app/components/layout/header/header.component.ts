@@ -3,12 +3,14 @@ import { ScrollDirective } from '../../../shared/directives/scroll.directive';
 import { OverlayDirective } from '../../../shared/directives/overlay.directive';
 import { CartService } from '../../../shared/services/cart/cart.service';
 import { WishlistService } from '../../../shared/services/wishList/wishlist.service';
+import { WishlistComponent } from "../wishlist/wishlist.component";
+import { OverlayWishlistDirective } from '../../../shared/directives/overlay-wishlist.directive';
 
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [ScrollDirective,OverlayDirective],
+  imports: [ScrollDirective, OverlayDirective, WishlistComponent,OverlayWishlistDirective],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })

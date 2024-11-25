@@ -1,0 +1,52 @@
+.wishlist {
+  width: 400px;
+  height: 100vh;
+  position: fixed;
+  right: -500px;
+  top: 0;
+  background-color: white;
+  z-index: 55555;
+  transition: all 0.4s ease;
+}
+
+.wishlist.active {
+  right: 0;
+}
+
+.wishlist .close {
+  transition: all 0.3s ease;
+}
+
+.wishlist .close:hover {
+  color: #000;
+  font-size: 20px;
+}
+
+.wishlist :where(.header) {
+  padding: 22px 35px;
+}
+
+.wishlist .body {
+  padding: 25px 40px;
+}
+
+.wishlist .body > div {
+  padding-bottom: 30px;
+}
+
+.wishlist .body > div {
+  border-bottom: 1px solid #ccc;
+}
+
+.wishlist .body {
+  font-size: 16px;
+}
+
+.control {
+  font-size: 9px;
+  font-weight: bolder;
+  width: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}/*# sourceMappingURL=wishlist.component.css.map */

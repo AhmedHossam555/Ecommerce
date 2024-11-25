@@ -8,6 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class WishlistService {
   private _plat = inject(PLATFORM_ID);
+  wishlist = new BehaviorSubject<Product[]>([]);
   wishlistNum = new BehaviorSubject<number>(0);
   wishListProd:Product[]  = isPlatformBrowser(this._plat) ? JSON.parse(window.localStorage.getItem('wishlist') || '[]'): [];
   constructor() { 

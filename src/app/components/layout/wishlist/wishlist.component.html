@@ -1,1 +1,44 @@
-<p>wishlist works!</p>
+<div class="wishlist">
+    <div class="d-flex justify-content-between align-items-center  border-bottom header  ">
+        <h5 class="fw-bolder">
+            Shopping wishlist 
+        </h5>
+        <button class="border-0 bg-white close text-second" >
+            Close X
+        </button>
+    </div>
+    <div class=" d-flex flex-column body ">
+        @for (product of wishList(); track $index) {
+            <div class="d-flex align-items-center gap-3 py-4" >
+                <img [src]= "product.images[0]" [alt]="product.title" style="width: 90px;height: 90px; object-fit: cover;">
+                <div class="flex-grow-1 align-self-start">
+                    <p class="m-0">
+                        {{product.title.split(" ").slice(0,2).join(" ")}}...
+                    </p>
+                    <p >
+                        {{product.price | currency}}
+                    </p>
+                    <p class="bg-main rounded-5 p-2  px-3 text-white control">
+                        <button class="border-0 bg-main" type="button" >
+                            <i class="fa-solid fa-minus text-white"></i>
+                        </button>
+                        <span class="quantity">
+                            {{product.quantity}}
+                        </span>
+                        <button class="border-0 bg-main" type="button" >
+                            <i class="fa-solid fa-plus text-white"></i>
+                        </button>
+                     
+                    </p>
+                </div>
+                <button class="border-0 bg-white  text-second" type="button" >
+                    X
+                </button>
+
+            </div>
+        }
+    </div>
+
+  
+    
+</div>
