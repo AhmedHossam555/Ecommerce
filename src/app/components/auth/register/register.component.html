@@ -1,1 +1,61 @@
-<p>register works!</p>
+<div class="container-fluid p-0 overflow-hidden">
+    <div class="row vh-100 ">
+        <div class="col-xs-12 col-md-8 position-relative">
+            <h1 class="position-absolute text-white  fw-bolder text-13 my-4 text-center ">
+                To keep connected with largest shop in the world.
+            </h1>
+            <img src="../../../../assets/images/login-bg.jpg" alt="login-bg" class="w-100 h-100" style="object-fit: cover;">
+        </div>
+        <div class="col-xs-12 col-md-4">
+                <div class="pt-4 px-5">
+                    <a class="fs-4 text-decoration-none ">
+                        <span class="color-link fw-bolder">Store</span>
+                        <i class="fa-solid fa-cart-shopping text-main ms-1"></i>
+                    </a>
+                </div>
+                <form action="" class="p-5 ">
+                    <h3 class="text-13 mb-4">
+                        Sign Up
+                    </h3>
+                    <div >
+                        <label for="name" class="mb-2">Full Name</label>
+                        <div class="position-relative">
+                            <input type="text" id="name" class="input" placeholder="Full Name">
+                            <i class="fa-solid fa-user symbol"></i>                    
+                       </div>
+                    </div>
+                    <div class="mt-4">
+                        <label for="email" class="mb-2">Email Address</label>
+                        <div class="position-relative">
+                            <input type="email" id="email" class="input" placeholder="Email or Username">
+                                <i class="fa-solid fa-envelope symbol"></i>
+                        </div>
+                    </div>
+                   
+                    <div class="mt-4">
+                        <label for="password" class="mb-2">Password</label>
+                        <div class="position-relative">
+                            <input type="password" id="password" class="input" placeholder="Password">
+                            <i class="fa-sharp-duotone fa-solid fa-eye symbol " style="cursor: pointer;" (click)="change($event)"></i>
+                       </div>
+                    </div>
+                        <div class="d-flex align-items-center mt-4 ">
+                            <input type="checkbox" name="policy" id="policy" class="me-1">
+                            <label for="policy">I agree to the <span class="text-primary">Terms</span> and <span class="text-primary">Privacy</span>.</label>
+                        </div>
+                    <div class="mt-4">
+                        <button class="btn btn-dark text-white ">
+                            Sign Up
+                        </button>
+                    </div>
+                    <div class="mt-4 text-center">
+                        Already a member? ? <a class="text-primary text-decoration-none">Sign In</a>
+                    </div>
+                 
+                </form>
+            </div>
+             
+           
+            
+        </div>
+    </div>
