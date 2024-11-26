@@ -13,11 +13,19 @@ export class WishlistService {
   wishListProd:Product[]  = isPlatformBrowser(this._plat) ? JSON.parse(window.localStorage.getItem('wishlist') || '[]'): [];
   constructor() { 
     this.wishlistNum.next(this.wishListProd.length);
+    if(isPlatformBrowser(this._plat)){
+      this.wishlist.next(JSON.parse(window.localStorage.getItem('wishlist') || '[]'));
+    }
   }
   addToWishList(product:Product){
    this.wishListProd.push(product);
+   const uniqueArray = this.wishListProd.filter(
+    (ele,index,arr)=> index === arr.findIndex((obj)=> obj.id === ele.id)
+    )
+   this.wishListProd = uniqueArray;
    window.localStorage.setItem('wishlist',JSON.stringify(this.wishListProd));
    this.wishlistNum.next(this.wishListProd.length);
+   this.wishlist.next(JSON.parse(window.localStorage.getItem('wishlist') || '[]'));
   }
   removeFromWishList(product:Product){
     this.wishListProd.map((ele,index)=>{
@@ -27,5 +35,6 @@ export class WishlistService {
     })
     this.wishlistNum.next(this.wishListProd.length);
     window.localStorage.setItem('wishlist',JSON.stringify(this.wishListProd));
+    this.wishlist.next(JSON.parse(window.localStorage.getItem('wishlist') || '[]'));
   }
 }

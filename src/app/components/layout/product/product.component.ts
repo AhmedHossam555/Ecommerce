@@ -1,5 +1,5 @@
 import { CurrencyPipe, isPlatformBrowser } from '@angular/common';
-import {   Component, inject, Input, PLATFORM_ID, signal, WritableSignal } from '@angular/core';
+import { Component, inject, Input, PLATFORM_ID, signal, WritableSignal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { WishlistService } from '../../../shared/services/wishList/wishlist.service';
 import { Product } from '../../../shared/interfaces/product';
@@ -19,15 +19,18 @@ export class ProductComponent{
   private _plat =inject(PLATFORM_ID);
   isWish:WritableSignal<boolean> = signal(false);
   @Input({required: true}) product:any;
+  wishList: Product[] = [];
   constructor(private toast: HotToastService) {}
   ngOnInit() {
-      this.filter();
+    console.log(this.product)
+      this.getWishList();
+      // this.filter();
   }
-  filter(){
-    const productWish:any[] = isPlatformBrowser(this._plat)? JSON.parse(window.localStorage.getItem('wishlist') || '[]') : [];
-    let val =  productWish.some((prod)=>prod.id === this.product.id);
-    this.isWish.update((old)=> old = val);
-  }
+  // filter(){
+  //   const productWish:any[] = isPlatformBrowser(this._plat)? JSON.parse(window.localStorage.getItem('wishlist') || '[]') : [];
+  //   let val =  productWish.some((prod)=>prod.id === this.product.id);
+  //   this.isWish.update((old)=> old = val);
+  // }
   addToWishList(event:Event,product:Product){
     const icon = event.currentTarget as HTMLElement;
      if(icon.classList.contains('fav')){
@@ -55,5 +58,18 @@ export class ProductComponent{
       position:'top-left',
     })
     this._CartService.addProductToCart(cartItem);
+  }
+ 
+  ProductInWishlist(item:any){
+    const val = this.wishList.find((prod)=>prod.id === item.id);
+    console.log(val);
+    return val;
+  }
+  getWishList(){
+    this._WishlistService.wishlist.subscribe({
+      next: (res)=>{
+        this.wishList = res;
+      }
+    })
   }
 }

@@ -1,7 +1,7 @@
 <div class="wishlist">
     <div class="d-flex justify-content-between align-items-center  border-bottom header  ">
         <h5 class="fw-bolder">
-            Shopping wishlist 
+             wishlist ({{wishNum()}})
         </h5>
         <button class="border-0 bg-white close text-second" >
             Close X
@@ -18,27 +18,17 @@
                     <p >
                         {{product.price | currency}}
                     </p>
-                    <p class="bg-main rounded-5 p-2  px-3 text-white control">
-                        <button class="border-0 bg-main" type="button" >
-                            <i class="fa-solid fa-minus text-white"></i>
-                        </button>
-                        <span class="quantity">
-                            {{product.quantity}}
-                        </span>
-                        <button class="border-0 bg-main" type="button" >
-                            <i class="fa-solid fa-plus text-white"></i>
-                        </button>
-                     
-                    </p>
+                    
+                    <button class="btn text-white text-uppercase ">Added to cart</button>
+                    
                 </div>
-                <button class="border-0 bg-white  text-second" type="button" >
+                <button class="border-0 bg-white  text-second" type="button" (click)="removeProductFromWishlist(product)" >
                     X
                 </button>
 
             </div>
         }
     </div>
-
   
     
 </div>

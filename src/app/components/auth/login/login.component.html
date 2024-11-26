@@ -1,1 +1,75 @@
-<p>login works!</p>
+<div class="container-fluid p-0 overflow-hidden">
+    <div class="row vh-100 ">
+        <div class="col-xs-12 col-md-8 position-relative">
+            <h1 class="position-absolute text-white  fw-bolder text-13 my-4 text-center ">
+                To keep connected with largest shop in the world.
+            </h1>
+            <img src="../../../../assets/images/login-bg.jpg" alt="login-bg" class="w-100 h-100" style="object-fit: cover;">
+        </div>
+        <div class="col-xs-12 col-md-4">
+                <div class="pt-4 px-5">
+                    <a class="fs-4 text-decoration-none ">
+                        <span class="color-link fw-bolder">Store</span>
+                        <i class="fa-solid fa-cart-shopping text-main ms-1"></i>
+                    </a>
+                </div>
+                <form action="" class="p-5 ">
+                    <h3 class="text-13 mb-4">
+                        Sign In
+                    </h3>
+                    <div >
+                        <label for="email" class="mb-2">Email Address</label>
+                        <div class="position-relative">
+                            <input type="email" id="email" class="input" placeholder="Email or Username">
+                                <i class="fa-solid fa-envelope symbol"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <label for="password" class="mb-2">Password</label>
+                        <div class="position-relative">
+                            <input type="password" id="password" class="input" placeholder="Password">
+                            <i class="fa-sharp-duotone fa-solid fa-eye symbol " style="cursor: pointer;" (click)="change($event)"></i>
+                       </div>
+                    </div>
+                    <div class="mt-4 d-flex justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <input type="checkbox" name="remember" id="remember" class="me-1">
+                            <label for="remember">Remember Me</label>
+                        </div>
+                        <a class="text-primary text-decoration-none" style="cursor: pointer;">
+                            Forgot Password ?
+                        </a>
+                    </div>
+                    <div class="mt-4">
+                        <button class="btn btn-dark text-white ">
+                            Sign In
+                        </button>
+                    </div>
+                    <div class="mt-4 text-center">
+                        Not a member? <a class="text-primary text-decoration-none">Sign Up now</a>
+                    </div>
+                    <div class="bg-dark border-white text-white mt-3 overflow-hidden" style="font-size: 16px;">
+                        <div class="row border-bottom p-1">
+                            <div class="col-6">
+                                Email Address
+                            </div>
+                            <div class="col-6 ">
+                                john&#64;mail.com
+                            </div>
+                        </div>
+                        <div class="row p-1">
+                            <div class="col-6">
+                                Password
+                            </div>
+                            <div class="col-6">
+                                changeme
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+             
+           
+            
+        </div>
+    </div>

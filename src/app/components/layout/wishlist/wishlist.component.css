@@ -41,6 +41,9 @@
 .wishlist .body {
   font-size: 16px;
 }
+.wishlist .body button.btn {
+  background-color: #f07e09 !important;
+}
 
 .control {
   font-size: 9px;

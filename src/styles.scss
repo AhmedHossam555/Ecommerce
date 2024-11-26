@@ -56,9 +56,13 @@ body {
     left: 0;
     background-color: rgba(0, 0, 0, 0.2);
     width: 100%;
-    min-height: 100%;
+    min-height: 100vh;
 }
 .stop-scrolling {
     height: 100%;
     overflow: hidden;
   }
+
+.text-13 {
+    font-size: calc(1.45rem + 2.4vw) !important;
+}

@@ -8,8 +8,7 @@
     z-index: 55555;
     transition: all 0.4s ease;
 }
-
-.wishlist.active {
+.wishlist.active {  
     right: 0;
 }
 .wishlist .close {
@@ -34,7 +33,11 @@
 }
 .wishlist .body {
     font-size: 16px;
+    button.btn {
+        background-color: #f07e09 !important;
+    }
 }
+
 .control {
     font-size: 9px;
     font-weight: bolder;

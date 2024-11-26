@@ -1,16 +1,15 @@
-import { Component, effect, inject, signal, WritableSignal } from '@angular/core';
+import { Component, inject, signal, WritableSignal } from '@angular/core';
 import { ScrollDirective } from '../../../shared/directives/scroll.directive';
 import { OverlayDirective } from '../../../shared/directives/overlay.directive';
 import { CartService } from '../../../shared/services/cart/cart.service';
 import { WishlistService } from '../../../shared/services/wishList/wishlist.service';
-import { WishlistComponent } from "../wishlist/wishlist.component";
 import { OverlayWishlistDirective } from '../../../shared/directives/overlay-wishlist.directive';
-
+import { WishlistComponent } from "../wishlist/wishlist.component";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [ScrollDirective, OverlayDirective, WishlistComponent,OverlayWishlistDirective],
+  imports: [ScrollDirective, OverlayDirective, OverlayWishlistDirective, WishlistComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
@@ -30,7 +29,6 @@ export class HeaderComponent {
         this.wishNum.set(res);
       }
     })
-  
   }
 }
 

@@ -5,7 +5,7 @@
             <img [src]="product.images[1]" onerror="this.onerror=null; this.src='../../../../assets/images/ImageNotFound.png'" alt="" class="w-100 h-100">
         </a>
 
-         <button type="button" class="fav-icon circle-icon" (click)="addToWishList($event,product)" [class.fav]="isWish()">
+         <button type="button" class="fav-icon circle-icon" (click)="addToWishList($event,product)" [class.fav]="ProductInWishlist(product)">
              <i class="fa-solid fa-heart"></i>
          </button>
      </div>
@@ -34,3 +34,4 @@
          </button>
      </div>
  </div>
+

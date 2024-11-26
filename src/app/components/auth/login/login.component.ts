@@ -9,4 +9,15 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+
+  change(event:Event){
+    const ele = event.currentTarget as HTMLElement;
+    if(ele.classList.contains('fa-eye')){
+      ele.classList.add('fa-eye-slash');
+      ele.classList.remove('fa-eye');
+    }else{
+      ele.classList.remove('fa-eye-slash');
+      ele.classList.add('fa-eye');
+    }
+}
 }
