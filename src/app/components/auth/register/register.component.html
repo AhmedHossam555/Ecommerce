@@ -35,8 +35,8 @@
                     <div class="mt-4">
                         <label for="password" class="mb-2">Password</label>
                         <div class="position-relative">
-                            <input type="password" id="password" class="input" placeholder="Password">
-                            <i class="fa-sharp-duotone fa-solid fa-eye symbol " style="cursor: pointer;" (click)="change($event)"></i>
+                            <input [type]="isVisiable()?'text':'password'" id="password" class="input" placeholder="Password">
+                            <i class="fa-sharp-duotone fa-solid  symbol " [ngClass]="isVisiable()? 'fa-eye':'fa-eye-slash'" style="cursor: pointer;" (click)="visiableControl()"></i>
                        </div>
                     </div>
                         <div class="d-flex align-items-center mt-4 ">

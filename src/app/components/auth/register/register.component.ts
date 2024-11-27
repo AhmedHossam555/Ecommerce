@@ -1,21 +1,17 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, signal, WritableSignal } from '@angular/core';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
-  change(event:Event){
-    const ele = event.currentTarget as HTMLElement;
-    if(ele.classList.contains('fa-eye')){
-      ele.classList.add('fa-eye-slash');
-      ele.classList.remove('fa-eye');
-    }else{
-      ele.classList.remove('fa-eye-slash');
-      ele.classList.add('fa-eye');
-    }
+  isVisiable:WritableSignal<boolean> = signal(false);
+
+  visiableControl(){
+    this.isVisiable.update((val)=> val = !val);
   }
 }
