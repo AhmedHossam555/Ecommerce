@@ -24,11 +24,11 @@
                                 <i class="fa-solid fa-envelope symbol"></i>
                         </div>
                     </div>
-                    <div class="mt-4">
+                    <div class="mt-4  password">
                         <label for="password" class="mb-2">Password</label>
                         <div class="position-relative">
-                            <input type="password" id="password" class="input" placeholder="Password">
-                            <i class="fa-sharp-duotone fa-solid fa-eye symbol " style="cursor: pointer;" (click)="change($event)"></i>
+                            <input [type]="isVisisble()?'text':'password'" id="password" class="input" placeholder="Password">
+                            <i class="fa-sharp-duotone fa-solid symbol " [ngClass]="isVisisble()?'fa-eye': 'fa-eye-slash' " style="cursor: pointer;" (click)="visiableControl()"></i>
                        </div>
                     </div>
                     <div class="mt-4 d-flex justify-content-between">

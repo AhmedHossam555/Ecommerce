@@ -1,0 +1,147 @@
+.route a {
+  margin-right: 25px;
+  font-size: 16px;
+  position: relative;
+  cursor: pointer;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.route a:not(:last-child)::before {
+  content: ">";
+  position: absolute;
+  right: -18px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.active {
+  color: white !important;
+  pointer-events: none;
+}
+
+.stars {
+  width: -moz-fit-content;
+  width: fit-content;
+  display: inline-block;
+  margin-top: 9px;
+}
+
+:host ::ng-deep .owl-item {
+  margin: 6px;
+}
+
+:host ::ng-deep .owl-item.active.center img {
+  border: 3px solid orange;
+}
+
+.image-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-card img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.image-card img:nth-child(2) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.image-card:hover img:nth-child(2) {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.fav-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  transition: all 0.3s ease-in, transform 0.4s ease-in-out;
+  transform: translateX(80px);
+}
+
+.circle-icon {
+  width: 35px;
+  height: 35px;
+  border-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fav-icon:hover {
+  background-color: #fb5231;
+  color: white;
+}
+
+.image-card:hover .fav-icon {
+  transform: translateX(0);
+}
+
+.text {
+  height: 50px;
+  padding-top: 45px !important;
+}
+
+.text p {
+  font-size: 12px !important;
+  max-width: 120px !important;
+}
+
+.text > button {
+  font-size: 12px !important;
+}
+
+.stars {
+  display: inline-block !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+}
+
+.product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product > .cart {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.cart:hover {
+  background-color: #ff8100;
+  color: white;
+}
+
+@media (min-width: 992px) {
+  .header {
+    margin-top: -80px;
+  }
+}
+::ng-deep .ngxImageZoomContainer {
+  width: 100% !important;
+  height: auto !important;
+}
+
+::ng-deep .ngxImageZoomContainer > img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+
+::ng-deep .ngxImageZoomContainer > img:hover {
+  cursor: zoom-in;
+}/*# sourceMappingURL=product-details.component.css.map */

@@ -1,23 +1,18 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, signal, WritableSignal } from '@angular/core';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+  isVisisble:WritableSignal<boolean> = signal(false);
 
-
-  change(event:Event){
-    const ele = event.currentTarget as HTMLElement;
-    if(ele.classList.contains('fa-eye')){
-      ele.classList.add('fa-eye-slash');
-      ele.classList.remove('fa-eye');
-    }else{
-      ele.classList.remove('fa-eye-slash');
-      ele.classList.add('fa-eye');
-    }
-}
+  visiableControl(){
+    this.isVisisble.update((val)=> val =  !val);
+    console.log(this.isVisisble())
+  }
 }
