@@ -3,7 +3,6 @@
     text-wrap:balance;
 }
 .input {
-    border: 0;
     background: #f3f3f3;
     padding: 12px 15px;
     border-radius: 8px;
@@ -11,6 +10,8 @@
     font-size: 16px;
     color: #656565;
     outline: none;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
 }
 .symbol {
     position: absolute;    
@@ -22,7 +23,6 @@
     color: #444;
     font-size: 14px;
 }
-
 form h1 {
     letter-spacing: 1.5px;
 }
@@ -30,4 +30,16 @@ button {
     width: 100%;
     padding: 12px;
     font-size: 20px;
+}
+@media (min-width: 992px) {
+    .container-fluid {
+        overflow: hidden;
+    }
+}
+input.ng-invalid:where(.ng-dirty,.ng-touched){
+    border-color: #fb0808 !important;
+}
+
+input.ng-invalid:where(.ng-dirty,.ng-touched) + i {
+    color: #fb0808;
 }

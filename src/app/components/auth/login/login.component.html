@@ -1,4 +1,4 @@
-<div class="container-fluid p-0 overflow-hidden">
+<div class="container-fluid p-0 overflow-x-hidden">
     <div class="row vh-100 ">
         <div class="col-xs-12 col-md-8 position-relative">
             <h1 class="position-absolute text-white  fw-bolder text-13 my-4 text-center ">
@@ -13,25 +13,48 @@
                         <i class="fa-solid fa-cart-shopping text-main ms-1"></i>
                     </a>
                 </div>
-                <form action="" class="p-5 ">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="p-5 ">
                     <h3 class="text-13 mb-4">
                         Sign In
                     </h3>
-                    <div >
+                    <div class="mb-3">
                         <label for="email" class="mb-2">Email Address</label>
                         <div class="position-relative">
-                            <input type="email" id="email" class="input" placeholder="Email or Username">
-                                <i class="fa-solid fa-envelope symbol"></i>
+                            <input type="email" id="email" formControlName="email" class="input" placeholder="Email or Username">
+                            <i class="fa-solid fa-envelope symbol"></i>
                         </div>
+                        @if (loginForm.get('email')?.errors && (loginForm.get("email")?.touched || loginForm.get('email')?.dirty)) {
+                            <small class="text-danger d-block">
+                                @if(loginForm.get('email')?.getError('required')){
+                                    <span>Email is required</span>
+                                }@else if(loginForm.get('email')?.getError('email')){
+                                    <span>Email is not valid</span>
+                                }
+                            </small>
+                        }
                     </div>
-                    <div class="mt-4  password">
+                    <div class="mb-3 ">
                         <label for="password" class="mb-2">Password</label>
                         <div class="position-relative">
-                            <input [type]="isVisisble()?'text':'password'" id="password" class="input" placeholder="Password">
+                            <input [type]="isVisisble()?'text':'password'" formControlName="password" id="password" class="input" placeholder="Password">
                             <i class="fa-sharp-duotone fa-solid symbol " [ngClass]="isVisisble()?'fa-eye': 'fa-eye-slash' " style="cursor: pointer;" (click)="visiableControl()"></i>
+                       
                        </div>
+                       @if (loginForm.get('password')?.errors && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty) ) {
+                        <small class="text-danger d-block pt-1">
+                          @if(loginForm.get('password')?.getError('required')){
+                              <span>
+                                  Password is required
+                              </span>
+                          }@else if(loginForm.get('password')?.getError('minlength')){
+                              <span>
+                                  Password must be at least 5 character
+                              </span>
+                          }
+                        </small>
+                      }
                     </div>
-                    <div class="mt-4 d-flex justify-content-between">
+                    <div class="mb-3 d-flex justify-content-between">
                         <div class="d-flex align-items-center">
                             <input type="checkbox" name="remember" id="remember" class="me-1">
                             <label for="remember">Remember Me</label>
@@ -40,13 +63,13 @@
                             Forgot Password ?
                         </a>
                     </div>
-                    <div class="mt-4">
-                        <button class="btn btn-dark text-white ">
+                    <div class="mb-3">
+                        <button class="btn btn-dark text-white " type="submit" >
                             Sign In
                         </button>
                     </div>
-                    <div class="mt-4 text-center">
-                        Not a member? <a class="text-primary text-decoration-none">Sign Up now</a>
+                    <div class="mb-3 text-center">
+                        Not a member? <a class="text-primary text-decoration-none" routerLink="/register" style="cursor: pointer;">Sign Up now</a>
                     </div>
                     <div class="bg-dark border-white text-white mt-3 overflow-hidden" style="font-size: 16px;">
                         <div class="row border-bottom p-1">
