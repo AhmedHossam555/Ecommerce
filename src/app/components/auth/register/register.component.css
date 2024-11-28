@@ -34,4 +34,10 @@ button {
   width: 100%;
   padding: 12px;
   font-size: 20px;
+}
+
+@media (min-width: 992px) {
+  .container-fluid {
+    overflow: hidden;
+  }
 }/*# sourceMappingURL=register.component.css.map */
