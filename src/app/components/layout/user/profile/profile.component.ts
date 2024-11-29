@@ -1,12 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, inject, PLATFORM_ID, signal, WritableSignal } from '@angular/core';
+import { HeaderComponent } from "../../header/header.component";
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { UserService } from '../../../../shared/services/user/user.service';
+import { isPlatformBrowser } from '@angular/common';
+import { Profile } from '../../../../shared/interfaces/profile';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [],
+  imports: [HeaderComponent, RouterLinkActive,RouterLink],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
 export class ProfileComponent {
-
+  private _UserService = inject(UserService);
+  private _Plat = inject(PLATFORM_ID);
+  profile: WritableSignal<Profile> = signal({})
+  ngOnInit() {
+    if(isPlatformBrowser(this._Plat)){
+      this.getProfile();
+    }
+  }
+  
+  getProfile(){
+    this._UserService.getProfile().subscribe({
+      next: (res)=>{
+        this.profile.set(res);
+        console.log(this.profile())
+      }
+  })
+}
 }

@@ -16,17 +16,22 @@ export class CartComponent {
   private _CartSevice = inject(CartService);
   private _toast = inject(HotToastService);
   cartNum: WritableSignal<number> = signal(0);
-  CartProduct: Product[] = [];
+  CartProduct:WritableSignal<Product[]> = signal([]);
   total:WritableSignal<number> = signal(0);
+
   ngOnInit() {
-  this.CartProduct = this._CartSevice.cart;
+ // this.CartProduct.update((val)=> val= this._CartSevice.cart);
   this.total.update((val)=> val = this._CartSevice.totalPrice());
   this._CartSevice.cartNum.subscribe({
     next: (res)=>{
       this.cartNum.set(res);
     }
   });
- 
+  this._CartSevice.cartProduct.subscribe({
+    next:(res)=>{
+      this.CartProduct.update((val)=> val= res)
+    }
+  })
   }
   removeProductFromCart(product:Product){
     this._toast.error('Product removed from cart',{

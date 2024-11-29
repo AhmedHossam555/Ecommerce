@@ -5,11 +5,12 @@ import { CartService } from '../../../shared/services/cart/cart.service';
 import { WishlistService } from '../../../shared/services/wishList/wishlist.service';
 import { OverlayWishlistDirective } from '../../../shared/directives/overlay-wishlist.directive';
 import { WishlistComponent } from "../wishlist/wishlist.component";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [ScrollDirective, OverlayDirective, OverlayWishlistDirective, WishlistComponent],
+  imports: [ScrollDirective, OverlayDirective, OverlayWishlistDirective, WishlistComponent,RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })

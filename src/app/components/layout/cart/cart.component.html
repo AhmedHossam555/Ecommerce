@@ -8,7 +8,7 @@
         </button>
     </div>
     <div class=" d-flex flex-column body ">
-        @for (product of CartProduct; track $index) {
+        @for (product of CartProduct(); track $index) {
             <div class="d-flex align-items-center gap-3 py-4" >
                 <img [src]= "product.images[0]" [alt]="product.title" style="width: 90px;height: 90px; object-fit: cover;">
                 <div class="flex-grow-1 align-self-start">

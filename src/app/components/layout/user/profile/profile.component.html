@@ -1,1 +1,80 @@
-<p>profile works!</p>
+<app-header></app-header>
+<div class="container pt-5">
+    <div class="row ">
+        <div class="col-md-3">
+            <nav class="bg-light rounded-2">
+                <ul class=" list-unstyled pb-3">
+                    <li>
+                        <a routerLink="/user/profile" routerLinkActive="actives" class="p-2  rounded-2">Profile Setting</a>
+                    </li>
+                    <li>
+                        <a routerLink="/user/wishlist" routerLinkActive="actives" class="p-2 rounded-2">
+                            My Wishlist
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/login" routerLinkActive="actives"   class="p-2  rounded-2">
+                            Log Out
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+        </div>
+        <div class="col-md-9">
+            <div class="border border-light-subtle rounded-2 p-4 w-100">
+                <div class="d-flex justify-content-between align-items-center border-bottom pb-4">
+                    <div>
+                        <img src="../../../../../assets/images/avatar.jpg" alt="avatar" class="rounded-5" style="width: 60px; height: 60px;">  
+                        <span class="ms-3">
+                            {{profile().name}}
+                        </span>
+                    </div>
+                    <button class="btn bg-main text-white">
+                        <i class="fa-solid fa-pen"></i>
+                    </button>
+              
+                </div>
+                <div class="row g-2 mb-2 pt-3">
+                    <div class="col-md-6 ">
+                        <article class="bg-light p-3 rounded-2 border">
+                            <b class="mx-2 text-muted">
+                                <i class="fa-solid fa-envelope"></i>
+                            </b>
+                            Email :  {{profile().email}}
+                        </article>
+                     
+                    </div>
+                    <div class="col-md-6 ">
+                   
+                        <article class="bg-light p-3 rounded-2 border">
+                            <b class="mx-2 text-muted">
+                                <i  class="fa-solid fa-phone-flip"></i>
+                            </b>
+                            Phone: 01060634509
+                        </article>
+                     
+                    </div>
+                    <div class="col-md-6 ">
+                      
+                        <article class="bg-light p-3 rounded-2 border">
+                            <b class="mx-2 text-muted">
+                                <i  class="fa-solid fa-user"></i>
+                            </b>
+                            {{profile().role}}
+                        </article>
+                    </div>
+                    <div class="col-md-6 ">
+                        <article class="bg-light p-3 rounded-2 border">
+                            <b class="mx-2 text-muted">
+                                <i class="fa fa-map-marker-alt"></i>
+                            </b>
+                            Zamalk, Street,Giza
+                        </article>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

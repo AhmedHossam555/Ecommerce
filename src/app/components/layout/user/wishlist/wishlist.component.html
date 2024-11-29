@@ -1,1 +1,78 @@
-<p>wishlist works!</p>
+<app-header></app-header>
+<div class="container pt-5">
+    <div class="row ">
+        <div class="col-md-3">
+            <nav class="bg-light rounded-2">
+                <ul class=" list-unstyled pb-3">
+                    <li>
+                        <a routerLink="/user/profile" routerLinkActive="actives" class="p-2  rounded-2">Profile Setting</a>
+                    </li>
+                    <li>
+                        <a routerLink="/user/wishlist" routerLinkActive="actives" class="p-2 rounded-2">
+                            My Wishlist
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/login" routerLinkActive="actives"   class="p-2  rounded-2">
+                            Log Out
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-md-9">
+            <div class="container">
+                @for (product of wishlistProduct(); track $index) {
+                    <div class="row p-3  gy-2 border border-light-subtle  rounded-2 align-items-center shadow-sm mb-4">
+                        <div class="col-xs-12 col-md-4 col-lg-3 text-center">
+                            <a class=" d-inline-flex" style="height: 227px" >
+                                <img [src]="product.images" [alt]="product.category.name" class="w-100 h-100  rounded-2" style="object-fit: cover;">
+                            </a>
+                        </div>
+                        <div class="col-xs-6 col-md-6  text-muted ">
+                            <h5>
+                                {{product.title}}
+                            </h5>
+                            <div class="d-flex">
+                                <ul class="stars">
+                                    <li>
+                                        <img src="../../../../../assets/images/stars-active.svg" alt="active-start" >
+                                    </li>
+                                    <li>
+                                        <img src="../../../../../assets/images/starts-disable.svg" alt="disable-start" >
+                                    </li>
+                                </ul>
+                                <span class="text-main mx-2">4.5</span>
+                                <span>154 order</span>
+                            </div>
+                            <p >
+                                {{product.description}}
+                            </p>
+                            <span class="btn rounded-5 border border-light-subtle me-1 text-muted fs-14">
+                                {{product.category.name}}
+                            </span>
+                            <span class="btn rounded-5 border border-light-subtle text-muted fs-14">Pink Color</span>
+                           
+                        </div>
+                        <div class="col-xs-6 col-md-6 col-lg-3">
+                           <div class="border-start p-4">
+                            <span class="d-block fw-bold fs-3">
+                              {{product.price | currency}}
+                            </span>
+                            <span class="d-block mb-4 text-success">
+                                Free Shipping
+                            </span>
+                            <button class="btn bg-main text-white me-1">Buy this</button>
+                            <button class="btn btn-danger text-white">
+                                <i class="fa fa-heart"></i>
+                            </button>
+                           </div>
+                        </div>
+                      </div>
+                }
+              
+            </div>
+      
+        </div>
+    </div>
+</div>

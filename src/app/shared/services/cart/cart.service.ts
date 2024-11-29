@@ -9,8 +9,12 @@ export class CartService  {
   private _plat = inject(PLATFORM_ID);
   cartNum = new BehaviorSubject<number>(0);
   cart:Product[] = isPlatformBrowser(this._plat)? JSON.parse(window.localStorage.getItem('cart') || '[]'): [];
+  cartProduct = new BehaviorSubject<Product[]>([]);
   constructor(){
      this.cartNum.next(this.cart.length);
+     if(isPlatformBrowser(this._plat)){
+      this.cartProduct.next(JSON.parse(window.localStorage.getItem('cart') || '[]'));
+     }
      this.totalPrice();
   }
   addProductToCart(product:Product){
@@ -20,8 +24,8 @@ export class CartService  {
       )
     this.cart = uniqueArray;
     this.cartNum.next(this.cart.length);
-
     window.localStorage.setItem('cart',JSON.stringify(this.cart));
+    this.cartProduct.next(JSON.parse(window.localStorage.getItem('cart') || '[]'));
   }
   updateProduct(product:Product){
     this.cart.forEach((ele,index)=>{
@@ -30,6 +34,7 @@ export class CartService  {
       }
     })
     window.localStorage.setItem('cart',JSON.stringify(this.cart));
+    this.cartProduct.next(JSON.parse(window.localStorage.getItem('cart') || '[]'));
   }
   removeProductFromCart(product:Product){
      this.cart.map((ele:any,index:number)=>{
@@ -38,8 +43,8 @@ export class CartService  {
       }
     });
      this.cartNum.next(this.cart.length);
-
     window.localStorage.setItem('cart',JSON.stringify(this.cart));
+    this.cartProduct.next(JSON.parse(window.localStorage.getItem('cart') || '[]'));
   }
   totalPrice():number{
     let sum=0;
