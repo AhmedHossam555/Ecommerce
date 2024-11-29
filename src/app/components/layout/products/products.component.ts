@@ -1,8 +1,8 @@
 import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
-import { ProductService } from '../../../shared/services/product.service';
 import { Product } from '../../../shared/interfaces/product';
 import { InfiniteScrollDirective } from 'ngx-infinite-scroll';
 import { ProductComponent } from '../product/product.component';
+import { ProductService } from '../../../shared/services/product/product.service';
 @Component({
   selector: 'app-products',
   standalone: true,

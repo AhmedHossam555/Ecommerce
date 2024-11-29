@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { HeaderComponent } from "../header/header.component";
-import { ProductService } from '../../../shared/services/product.service';
+import { ProductService } from '../../../shared/services/product/product.service'; 
 import { Product } from '../../../shared/interfaces/product';
 import { CurrencyPipe } from '@angular/common';
 import { OwlOptions } from 'ngx-owl-carousel-o';
