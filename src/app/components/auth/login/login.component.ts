@@ -18,6 +18,7 @@ export class LoginComponent {
   private _Router = inject(Router);
   private _toastr = inject(HotToastService);
   isVisisble:WritableSignal<boolean> = signal(false);
+  errorMsg:WritableSignal<string[]> = signal([])
 
   loginForm:FormGroup = new FormGroup({
     email: new FormControl(null, [Validators.required,Validators.email]),
@@ -25,7 +26,22 @@ export class LoginComponent {
   })
   onSubmit(){
     this.loginForm.markAllAsTouched;
-    console.log(this.loginForm.value)
+    this._UserService.login(this.loginForm.value).pipe(
+      this._toastr.observe({
+        loading: 'Logging in...',
+        success: 'Logging in successfully',
+        error: ({error})=> `error message ${error.message}`,
+        })
+    ).subscribe({
+      next: (res)=>{
+        window.localStorage.setItem('token',res.access_token);
+        this._UserService.userToken();
+        this._Router.navigate(['/']);
+      },
+      error: ({error})=>{
+        this.errorMsg.set(error.message);
+      }
+    })
   }
   visiableControl(){
     this.isVisisble.update((val)=> val =  !val);

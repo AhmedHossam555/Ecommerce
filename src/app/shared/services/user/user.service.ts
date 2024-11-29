@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Enviroment } from '../../Enviroment/enviroment';
 import { Login } from '../../interfaces/login';
 import { Register } from '../../interfaces/register';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -16,4 +17,12 @@ export class UserService {
   register(registerForm:Register):Observable<any> {
     return this._HttpClient.post(`${Enviroment.baseUrl}/users/`,registerForm)
   }
+  userInformation = new BehaviorSubject<any>(null);
+  userToken(){
+    const token = JSON.stringify(window.localStorage.getItem('token'));
+    const decoded = jwtDecode(token);
+    console.log(decoded);
+    this.userInformation.next(decoded);
+  }
+
 }

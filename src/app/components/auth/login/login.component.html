@@ -67,6 +67,11 @@
                         <button class="btn btn-dark text-white " type="submit" >
                             Sign In
                         </button>
+                        @if(errorMsg()){
+                            <small class="d-block text-danger py-1">
+                               {{errorMsg()}}
+                            </small>
+                        }
                     </div>
                     <div class="mb-3 text-center">
                         Not a member? <a class="text-primary text-decoration-none" routerLink="/register" style="cursor: pointer;">Sign Up now</a>
@@ -91,8 +96,5 @@
                     </div>
                 </form>
             </div>
-             
-           
-            
         </div>
     </div>
