@@ -193,7 +193,7 @@
                  <div class="d-flex justify-content-between align-items-center mb-4">
                     <b>Total price:</b>
                     <span>
-                        663$
+                        {{total() | currency}}
                     </span>
                  </div>
                  <div class="d-flex justify-content-between align-items-center mb-4">
@@ -212,7 +212,7 @@
                  <div class="d-flex justify-content-between align-items-center mb-4" >
                     <b>Total:</b>
                     <span>
-                        $513
+                        {{(total() - 200 + 50) | currency}}
                     </span>
                  </div>
                  <div class="d-flex apply pb-4 border-bottom">

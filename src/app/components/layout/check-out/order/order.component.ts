@@ -4,6 +4,7 @@ import { CartService } from '../../../../shared/services/cart/cart.service';
 import { HeaderComponent } from "../../header/header.component";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CurrencyPipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order',
@@ -14,13 +15,17 @@ import { CurrencyPipe } from '@angular/common';
 })
 export class OrderComponent {
   private _CartService = inject(CartService);
-  products: WritableSignal<Product[]> = signal([])
+  private _Router = inject(Router);
+  products: WritableSignal<Product[]> = signal([]);
+  total:WritableSignal<number> = signal(0);
   ngOnInit() {
    this._CartService.cartProduct.subscribe({
      next: (res)=> {
        this.products.set(res)
      }
    })
+   this.total.set(this._CartService.totalPrice());
+ 
   }
   changeRadio($event:Event){
     document.querySelectorAll(".box").forEach((ele)=>{

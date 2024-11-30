@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="container text-center pt-4">
+    <div class="cong pb-3">
+        <i>✓</i>
+    </div>
+    <h4 class="pb-2">
+        Congratulation! You 've completed payment.
+    </h4>
+    <p>We have recieved your order and it will be delivered in the next 3 days</p>
+    <div class="row">
+        <div class="col-lg-3 col-md-6">
+            <h5>
+                Order Number
+            </h5>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <h5>
+                Date
+            </h5>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <h5>
+                Total
+            </h5>
+            <span>
+                {{total() | currency}}
+            </span>
+
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <h5>
+                Payment method
+            </h5>
+            <span>Check payment</span>
+        </div>
+    </div>
+</div>

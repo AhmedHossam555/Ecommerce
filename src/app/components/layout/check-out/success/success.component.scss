@@ -1,0 +1,16 @@
+.cong i {
+    width: 100px; 
+    height: 100px;
+    display: inline-block;
+    border-radius: 50%;
+    font-size: 55px;
+    font-weight: 300;
+    text-align: center;
+    line-height: 100px;
+    color: #ff8100 !important;
+    background-color: rgba($color: orange,$alpha: 0.1);
+}
+p {
+    letter-spacing: 1.2px;
+    line-height: 100%;
+}
