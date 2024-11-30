@@ -36,5 +36,20 @@ export class OrderComponent {
     phone: new FormControl(null, [Validators.required]),
     email: new FormControl(null, [Validators.required, Validators.email]),
   })
+  shippingForm = new FormGroup({
+    address: new FormControl(null, Validators.required),
+    house: new FormControl(null, Validators.required),
+    post: new FormControl(null, Validators.required),
+    zip: new FormControl(null, Validators.required),
+  })
+
+  onSubmit(){
+    if(this.bilingForm.valid && this.shippingForm.valid){
+      console.log("Valid")
+    }else{
+      this.bilingForm.markAllAsTouched();
+      this.shippingForm.markAllAsTouched();
+    }
+  }
 
 }

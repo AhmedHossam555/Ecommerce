@@ -73,7 +73,7 @@
                  <h5 class="py-3">
                     Shipping info
                  </h5>
-                 <form action="">
+                 <form action="" [formGroup]="shippingForm" (ngSubmit)="onSubmit()">
                     <div class="row gy-3 ">
                         <div class="col-lg-4">
                         <div class="box  p-3 rounded-2 border" for="post" (click)="changeRadio($event)">
@@ -109,7 +109,16 @@
                      <div class="row pt-4 gy-3">
                         <div class="col-lg-9">
                             <label for="address" class="mb-2 fs-14">Address</label>
-                            <input type="text" id="address" class="form-control bg-light " placeholder="Type here">
+                            <input type="text" id="address" class="form-control bg-light " placeholder="Type here" formControlName="address" >
+                            @if(shippingForm.get('address')?.errors && (shippingForm.get('address')?.touched || shippingForm.get('address')?.dirty)){
+                                <small class="text-danger d-block">
+                                    @if(shippingForm.get('address')?.getError('required')){
+                                        <span>
+                                            Address is required
+                                        </span>
+                                    }
+                                </small>
+                            }
                         </div>
                         <div class="col-lg-3">
                             <label for="city" class="mb-2 fs-14">City</label>
@@ -121,15 +130,42 @@
                         </div>
                         <div class="col-lg-4">
                                 <label for="house" class="mb-2 fs-14">House</label>
-                                <input type="text" id="house" class="form-control bg-light " placeholder="Type here">           
+                                <input type="text" id="house" class="form-control bg-light " placeholder="Type here" formControlName="house">    
+                                @if(shippingForm.get('house')?.errors && (shippingForm.get('house')?.touched || shippingForm.get('house')?.dirty)){
+                                    <small class="text-danger d-block">
+                                        @if(shippingForm.get('house')?.getError('required')){
+                                            <span>
+                                                House is required
+                                            </span>
+                                        }
+                                    </small>
+                                }       
                         </div>
                         <div class="col-lg-4">
                                 <label for="code" class="mb-2 fs-14">Postal code</label>
-                                <input type="text" id="code" class="form-control bg-light " placeholder="Type here">
+                                <input type="text" id="code" class="form-control bg-light " placeholder="Type here" formControlName="post" >
+                                @if(shippingForm.get('post')?.errors && (shippingForm.get('post')?.touched || shippingForm.get('post')?.dirty)){
+                                    <small class="text-danger d-block">
+                                        @if(shippingForm.get('post')?.getError('required')){
+                                            <span>
+                                                Post is required
+                                            </span>
+                                        }
+                                    </small>
+                                }
                         </div>
                         <div class="col-lg-4">
                                 <label for="zip" class="mb-2 fs-14">Zip</label>
-                                <input type="text" id="zip" class="form-control bg-light " placeholder="Type here">
+                                <input type="text" id="zip" class="form-control bg-light " placeholder="Type here" formControlName="zip" >
+                                @if(shippingForm.get('zip')?.errors && (shippingForm.get('zip')?.touched || shippingForm.get('zip')?.dirty)){
+                                    <small class="text-danger d-block">
+                                        @if(shippingForm.get('zip')?.getError('required')){
+                                            <span>
+                                                Zip is required
+                                            </span>
+                                        }
+                                    </small>
+                                }
                         </div>
                         <div class="col-12">
                             <input type="checkbox" name="save" id="save" class="me-1">
@@ -141,8 +177,8 @@
                         </div>
                      </div>
                      <div class="mt-3 d-flex justify-content-end">
-                        <button class="btn border me-2 ">Cancel</button>
-                        <button class="btn bg-main  text-white">Continue</button>
+                        <button class="btn border me-2 " type="button">Cancel</button>
+                        <button class="btn bg-main  text-white" type="submit" >Continue</button>
                      </div>
                
                  </form>
