@@ -3,12 +3,13 @@ import { CartService } from '../../../shared/services/cart/cart.service';
 import { Product } from '../../../shared/interfaces/product';
 import { CurrencyPipe } from '@angular/common';
 import { HotToastService } from '@ngneat/hot-toast';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe,RouterLink],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss'
 })

@@ -21,7 +21,6 @@ export class ProfileComponent {
       this.getProfile();
     }
   }
-  
   getProfile(){
     this._UserService.getProfile().subscribe({
       next: (res)=>{
@@ -29,5 +28,9 @@ export class ProfileComponent {
         console.log(this.profile())
       }
   })
+}
+Logout(){
+  this._UserService.userInformation.next(null);
+  window.localStorage.removeItem('token');
 }
 }

@@ -11,6 +11,9 @@ import { jwtDecode } from 'jwt-decode';
 })
 export class UserService {
   private _HttpClient = inject(HttpClient);
+  ngOnInit() {
+  this.userToken();
+  }
   login(loginForm:Login):Observable<any>{
     return this._HttpClient.post(`${Enviroment.baseUrl}/auth/login`,loginForm)
   }
@@ -21,7 +24,6 @@ export class UserService {
   userToken(){
     const token = JSON.stringify(window.localStorage.getItem('token'));
     const decoded = jwtDecode(token);
-    console.log(decoded);
     this.userInformation.next(decoded);
   }
   getProfile():Observable<any>{

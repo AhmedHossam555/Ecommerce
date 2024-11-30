@@ -3,6 +3,7 @@ import { Component, EventEmitter, inject, OnInit, Output, signal, WritableSignal
 import { Product } from '../../../shared/interfaces/product';
 import { WishlistService } from '../../../shared/services/wishList/wishlist.service';
 import { HotToastService } from '@ngneat/hot-toast';
+import { CartService } from '../../../shared/services/cart/cart.service';
 
 
 
@@ -16,6 +17,7 @@ import { HotToastService } from '@ngneat/hot-toast';
 export class WishlistComponent implements OnInit{
 
   private _wishlistService = inject(WishlistService);
+  private _CartService = inject(CartService);
   private _toast = inject(HotToastService);
   wishList:WritableSignal<Product[]> = signal([]);
   wishNum: WritableSignal<number> = signal(0);
@@ -37,6 +39,10 @@ export class WishlistComponent implements OnInit{
      });
     this._wishlistService.removeFromWishList(product);
   }
-
-
+  addProductToCart(product:Product){
+    this._toast.success('Product added to cart successfully',{
+      position: 'top-left',
+     });
+     this._CartService.addProductToCart(product);
+  }
 }

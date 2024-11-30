@@ -45,6 +45,5 @@ export class LoginComponent {
   }
   visiableControl(){
     this.isVisisble.update((val)=> val =  !val);
-    console.log(this.isVisisble())
   }
 }

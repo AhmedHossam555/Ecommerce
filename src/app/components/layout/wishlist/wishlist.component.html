@@ -19,7 +19,7 @@
                         {{product.price | currency}}
                     </p>
                     
-                    <button class="btn text-white text-uppercase ">Added to cart</button>
+                    <button class="btn text-white text-uppercase " (click)="addProductToCart(product)">Added to cart</button>
                     
                 </div>
                 <button class="border-0 bg-white  text-second" type="button" (click)="removeProductFromWishlist(product)" >

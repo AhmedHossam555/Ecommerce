@@ -4,6 +4,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { WishlistService } from '../../../../shared/services/wishList/wishlist.service';
 import { Product } from '../../../../shared/interfaces/product';
 import { CurrencyPipe } from '@angular/common';
+import { UserService } from '../../../../shared/services/user/user.service';
 
 @Component({
   selector: 'app-wishlist',
@@ -14,6 +15,7 @@ import { CurrencyPipe } from '@angular/common';
 })
 export class WishlistComponent implements OnInit{
   private _WishlistService = inject(WishlistService);
+  private _UserService = inject(UserService);
   wishlistProduct: WritableSignal<Product[]> = signal([]);
 
   ngOnInit(): void {
@@ -23,6 +25,10 @@ export class WishlistComponent implements OnInit{
         this.wishlistProduct.update((val)=> val= res);
       }
     })
+  }
+  Logout(){
+    this._UserService.userInformation.next(null);
+    window.localStorage.removeItem('token');
   }
 
 }
