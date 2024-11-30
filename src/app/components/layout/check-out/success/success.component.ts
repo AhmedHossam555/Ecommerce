@@ -4,11 +4,12 @@ import { HeaderComponent } from "../../header/header.component";
 import { CurrencyPipe, DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { WishlistService } from '../../../../shared/services/wishList/wishlist.service';
+import { FooterComponent } from "../../footer/footer.component";
 
 @Component({
   selector: 'app-success',
   standalone: true,
-  imports: [HeaderComponent,CurrencyPipe,DatePipe],
+  imports: [HeaderComponent, CurrencyPipe, DatePipe, FooterComponent],
   templateUrl: './success.component.html',
   styleUrl: './success.component.scss'
 })

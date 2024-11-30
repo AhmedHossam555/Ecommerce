@@ -9,11 +9,13 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { WishlistService } from '../../../shared/services/wishList/wishlist.service';
 import { NgxImageZoomModule } from 'ngx-image-zoom';
 import { HotToastService } from '@ngneat/hot-toast';
+import { FooterComponent } from "../footer/footer.component";
+import { CartService } from '../../../shared/services/cart/cart.service';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [HeaderComponent, RouterLink, CurrencyPipe, CarouselModule,RouterLink,NgxImageZoomModule],
+  imports: [HeaderComponent, RouterLink, CurrencyPipe, CarouselModule, RouterLink, NgxImageZoomModule, FooterComponent],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss'
 })
@@ -96,6 +98,9 @@ export class ProductDetailsComponent implements OnInit{
 
   /****** */
   private _ProductService = inject(ProductService);
+  private _CartService = inject(CartService);
+  
+
   id:WritableSignal<string> = signal('');
   product?:Product;
   CategorieProduct:WritableSignal<Product[]> = signal([]);
@@ -131,5 +136,19 @@ export class ProductDetailsComponent implements OnInit{
       }
     })
   }
-
+  addProductToCart(){
+    this._toast.success('Product added to cart successfully',{
+      position: 'top-left'
+    })
+    this._CartService.addProductToCart({
+      ...this.product!,
+      quantity: 1,
+    })
+  }
+  addProductToWishlist(){
+    this._toast.success('Product add to wishlist successfully',{
+      position: 'top-left',
+    });
+    this._WishlistService.addToWishList(this.product!);
+  }
 }

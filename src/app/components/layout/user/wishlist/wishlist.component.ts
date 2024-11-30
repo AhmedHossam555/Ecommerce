@@ -7,11 +7,12 @@ import { CurrencyPipe } from '@angular/common';
 import { UserService } from '../../../../shared/services/user/user.service';
 import { CartService } from '../../../../shared/services/cart/cart.service';
 import { HotToastService } from '@ngneat/hot-toast';
+import { FooterComponent } from "../../footer/footer.component";
 
 @Component({
   selector: 'app-wishlist',
   standalone: true,
-  imports: [HeaderComponent,RouterLink, RouterLinkActive, CurrencyPipe],
+  imports: [HeaderComponent, RouterLink, RouterLinkActive, CurrencyPipe, FooterComponent],
   templateUrl: './wishlist.component.html',
   styleUrl: './wishlist.component.scss'
 })

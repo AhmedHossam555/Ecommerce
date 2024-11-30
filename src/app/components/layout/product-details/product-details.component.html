@@ -92,17 +92,17 @@
                 <option value="medium">Medium</option>
                 <option value="large">Large</option>
             </select>
-            <button class="btn bg-main text-white me-3 mb-3 mb-md-0">
+            <button class="btn bg-main text-white me-3 mb-3 mb-md-0" (click)="addProductToCart()">
                 <i class="fa fa-shopping-basket"></i>
                 Add to cart
             </button>
-            <button class="btn btn-light mb-3 mb-md-0">
+            <button class="btn btn-light mb-3 mb-md-0" (click)="addProductToWishlist()">
                 <i class="fa-regular fa-heart text-danger"></i>
                 Save
             </button>
         </div>
     </div>
-    <div class="text-center pb-2 header mt-0" >
+    <div class="text-center pb-2 mt-2 header " >
         <h6 class="text-main text-uppercase fw-bolder">
             Best Match
         </h6>
@@ -110,7 +110,7 @@
             Related Products
         </h1>
     </div>
-    <div class="row carts overflow-hidden ">
+    <div class="row carts overflow-hidden" style="max-height: 450px;">
         <owl-carousel-o [options]="custom2">
             @for (product of CategorieProduct(); track $index) {
                 <ng-template carouselSlide>
@@ -161,5 +161,4 @@
     </div>
  </div>
 
-   
-  
+ <app-footer></app-footer>

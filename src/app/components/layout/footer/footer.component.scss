@@ -1,0 +1,38 @@
+ul {
+    list-style: none;
+    padding: 0;
+}
+ul li {
+    padding: 12px 0;
+}
+h5 {
+    font-weight: bold;
+    letter-spacing: 0.1px;
+    text-wrap: nowrap;
+    padding: 24px 0;
+}
+.one p {
+    margin-bottom: 0;
+}
+a {
+    text-decoration: none;
+    color: #212529bf;
+}
+b {
+    margin-left: 5px !important;
+}
+i {
+    color: #666;
+}
+a:hover {
+    cursor: pointer;
+}
+input:focus {
+    outline: none;
+}
+input+a {
+    transition: all 0.3s ease;
+    &:hover {
+        color: #fb5231 !important;
+    }
+}

@@ -6,11 +6,12 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CurrencyPipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { relative } from 'path';
+import { FooterComponent } from "../../footer/footer.component";
 
 @Component({
   selector: 'app-order',
   standalone: true,
-  imports: [HeaderComponent,ReactiveFormsModule,CurrencyPipe],
+  imports: [HeaderComponent, ReactiveFormsModule, CurrencyPipe, FooterComponent],
   templateUrl: './order.component.html',
   styleUrl: './order.component.scss'
 })

@@ -4,8 +4,6 @@ import { Product } from '../../../shared/interfaces/product';
 import { CurrencyPipe } from '@angular/common';
 import { HotToastService } from '@ngneat/hot-toast';
 import { RouterLink } from '@angular/router';
-
-
 @Component({
   selector: 'app-cart',
   standalone: true,
@@ -60,7 +58,6 @@ export class CartComponent {
       quantity: value,
     })
   }
-  
   }
  
 

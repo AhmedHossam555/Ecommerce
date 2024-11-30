@@ -4,11 +4,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { UserService } from '../../../../shared/services/user/user.service';
 import { isPlatformBrowser } from '@angular/common';
 import { Profile } from '../../../../shared/interfaces/profile';
+import { FooterComponent } from "../../footer/footer.component";
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [HeaderComponent, RouterLinkActive,RouterLink],
+  imports: [HeaderComponent, RouterLinkActive, RouterLink, FooterComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
