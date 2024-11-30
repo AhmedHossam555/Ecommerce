@@ -43,6 +43,9 @@ export class WishlistComponent implements OnInit{
     this._toast.success('Product added to cart successfully',{
       position: 'top-left',
      });
-     this._CartService.addProductToCart(product);
+     this._CartService.addProductToCart({
+      ...product,
+      quantity: 1
+     });
   }
 }

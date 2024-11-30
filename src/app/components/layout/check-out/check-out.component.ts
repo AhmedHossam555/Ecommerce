@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal, WritableSignal } from '@angular/core';
 import { NgxSpinnerModule, NgxSpinnerService } from "ngx-spinner";
+import { CartService } from '../../../shared/services/cart/cart.service';
+import { Product } from '../../../shared/interfaces/product';
 
 @Component({
   selector: 'app-check-out',
@@ -9,5 +11,13 @@ import { NgxSpinnerModule, NgxSpinnerService } from "ngx-spinner";
   styleUrl: './check-out.component.scss'
 })
 export class CheckOutComponent {
- 
+ private _CartService = inject(CartService);
+ products: WritableSignal<Product[]> = signal([])
+ ngOnInit() {
+  this._CartService.cartProduct.subscribe({
+    next: (res)=> {
+      console.log(res)
+    }
+  })
+ }
 }

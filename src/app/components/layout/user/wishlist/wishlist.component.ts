@@ -43,7 +43,6 @@ export class WishlistComponent implements OnInit{
       position:'top-left'
     })
     this._WishlistService.addToWishList(product);
-
   }
   Logout(){
     this._UserService.userInformation.next(null);
