@@ -19,10 +19,14 @@ export class CartComponent {
   cartNum: WritableSignal<number> = signal(0);
   CartProduct:WritableSignal<Product[]> = signal([]);
   total:WritableSignal<number> = signal(0);
-
+  constructor(){
+    this._CartSevice.total.subscribe({
+      next: (res)=>{
+        this.total.update((val)=> val = res);
+      }
+    })
+  }
   ngOnInit() {
- // this.CartProduct.update((val)=> val= this._CartSevice.cart);
-  this.total.update((val)=> val = this._CartSevice.totalPrice());
   this._CartSevice.cartNum.subscribe({
     next: (res)=>{
       this.cartNum.set(res);
@@ -31,6 +35,11 @@ export class CartComponent {
   this._CartSevice.cartProduct.subscribe({
     next:(res)=>{
       this.CartProduct.update((val)=> val= res)
+    }
+  })
+  this._CartSevice.total.subscribe({
+    next: (res)=>{
+      this.total.update((val)=> val = res);
     }
   })
   }
@@ -50,7 +59,6 @@ export class CartComponent {
       ...product,
       quantity: value,
     })
-    this.total.update((val)=> val = this._CartSevice.totalPrice());
   }
   
   }

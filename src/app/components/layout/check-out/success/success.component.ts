@@ -30,6 +30,7 @@ export class SuccessComponent {
     this._WishlistService.wishlist.next([]);
     this._CartService.cartNum.next(0);
     this._WishlistService.wishlistNum.next(0);
+    this._CartService.total.next(0);
     this._Router.navigate(['/']);
   }
 }

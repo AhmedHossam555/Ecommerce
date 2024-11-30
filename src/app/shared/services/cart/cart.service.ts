@@ -10,6 +10,7 @@ export class CartService  {
   cartNum = new BehaviorSubject<number>(0);
   cart:Product[] = isPlatformBrowser(this._plat)? JSON.parse(window.localStorage.getItem('cart') || '[]'): [];
   cartProduct = new BehaviorSubject<Product[]>([]);
+  total = new BehaviorSubject<number>(0);
   constructor(){
      this.cartNum.next(this.cart.length);
      if(isPlatformBrowser(this._plat)){
@@ -26,6 +27,7 @@ export class CartService  {
     this.cartNum.next(this.cart.length);
     window.localStorage.setItem('cart',JSON.stringify(this.cart));
     this.cartProduct.next(JSON.parse(window.localStorage.getItem('cart') || '[]'));
+    this.totalPrice();
   }
   updateProduct(product:Product){
     this.cart.forEach((ele,index)=>{
@@ -35,6 +37,7 @@ export class CartService  {
     })
     window.localStorage.setItem('cart',JSON.stringify(this.cart));
     this.cartProduct.next(JSON.parse(window.localStorage.getItem('cart') || '[]'));
+    this.totalPrice();
   }
   removeProductFromCart(product:Product){
      this.cart.map((ele:any,index:number)=>{
@@ -45,12 +48,14 @@ export class CartService  {
      this.cartNum.next(this.cart.length);
     window.localStorage.setItem('cart',JSON.stringify(this.cart));
     this.cartProduct.next(JSON.parse(window.localStorage.getItem('cart') || '[]'));
+    this.totalPrice();
   }
   totalPrice():number{
     let sum=0;
     this.cart.forEach((ele)=>{
       sum+= ele.quantity! * ele.price;
     })
+    this.total.next(sum);
     return sum;
   }
 }
