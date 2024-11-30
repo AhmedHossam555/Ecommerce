@@ -7,18 +7,24 @@
         Congratulation! You 've completed payment.
     </h4>
     <p>We have recieved your order and it will be delivered in the next 3 days</p>
-    <div class="row">
-        <div class="col-lg-3 col-md-6">
+    <div class="row pt-4">
+        <div class="col-lg-3 col-md-6 border-end py-3 ">
             <h5>
                 Order Number
             </h5>
+            <span>
+                124
+            </span>
         </div>
-        <div class="col-lg-3 col-md-6">
+        <div class="col-lg-3 col-md-6 border-end py-3 date">
             <h5>
                 Date
             </h5>
+            <span>
+              {{Data() | date}}
+            </span>
         </div>
-        <div class="col-lg-3 col-md-6">
+        <div class="col-lg-3 col-md-6 border-end py-3 ">
             <h5>
                 Total
             </h5>
@@ -27,11 +33,14 @@
             </span>
 
         </div>
-        <div class="col-lg-3 col-md-6">
+        <div class="col-lg-3 col-md-6 py-3">
             <h5>
                 Payment method
             </h5>
             <span>Check payment</span>
         </div>
+    </div>
+    <div class="text-center pt-4">
+        <button class="btn bg-main text-white">Back to store</button>
     </div>
 </div>

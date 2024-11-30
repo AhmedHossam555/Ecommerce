@@ -14,3 +14,16 @@ p {
     letter-spacing: 1.2px;
     line-height: 100%;
 }
+@media (max-width: 992px){
+    .date {
+        border: 0 !important;
+    }
+}
+@media (max-width: 768px) {
+    .border-end {
+        border: 0 !important;
+    }
+}
+.btn:hover {
+    color: #000 !important;
+}
