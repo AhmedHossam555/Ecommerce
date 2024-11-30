@@ -5,6 +5,7 @@ import { HeaderComponent } from "../../header/header.component";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CurrencyPipe } from '@angular/common';
 import { Router } from '@angular/router';
+import { relative } from 'path';
 
 @Component({
   selector: 'app-order',
@@ -51,7 +52,7 @@ export class OrderComponent {
 
   onSubmit(){
     if(this.bilingForm.valid && this.shippingForm.valid){
-      console.log("Valid")
+      this._Router.navigate(['/checkout/success']);
     }else{
       this.bilingForm.markAllAsTouched();
       this.shippingForm.markAllAsTouched();

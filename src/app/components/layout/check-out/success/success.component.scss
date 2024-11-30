@@ -24,6 +24,9 @@ p {
         border: 0 !important;
     }
 }
+.btn {
+    transition: all 0.3s ease;
+}
 .btn:hover {
     color: #000 !important;
 }
