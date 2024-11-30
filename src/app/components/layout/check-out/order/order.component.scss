@@ -37,3 +37,31 @@ input[type="radio"]:checked {
     background-color: #ff8100;
     background-image: url('data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9Jy00IC00IDggOCc+PGNpcmNsZSByPScyJyBmaWxsPScjZmZmJy8+PC9zdmc+');
 }
+.apply {
+    width: 100%;
+    font-size: 16px !important;
+    input {
+        border: 0;
+        outline: none;
+        padding: 8px 12px;
+        border-radius: 6px 0 0 6px;
+    }
+    button {
+        border: 0;
+        color: #ff8100;
+        padding: 8px 12px;
+        border-radius: 0 6px 6px 0;
+        }
+
+}
+.badge {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #555;
+    top: -10px;
+    right: -10px;
+    display: block;
+    text-align: center;
+    line-height: 20px;
+}

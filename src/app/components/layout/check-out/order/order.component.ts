@@ -3,11 +3,12 @@ import { Product } from '../../../../shared/interfaces/product';
 import { CartService } from '../../../../shared/services/cart/cart.service';
 import { HeaderComponent } from "../../header/header.component";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-order',
   standalone: true,
-  imports: [HeaderComponent,ReactiveFormsModule],
+  imports: [HeaderComponent,ReactiveFormsModule,CurrencyPipe],
   templateUrl: './order.component.html',
   styleUrl: './order.component.scss'
 })
