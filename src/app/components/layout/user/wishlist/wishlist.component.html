@@ -62,8 +62,8 @@
                             <span class="d-block mb-4 text-success">
                                 Free Shipping
                             </span>
-                            <button class="btn bg-main text-white me-1">Buy this</button>
-                            <button class="btn btn-danger text-white">
+                            <button class="btn bg-main text-white me-1" (click)="addProductToCart(product)">Buy this</button>
+                            <button class="btn btn-danger text-white" (click)="addProductToWishlist(product)">
                                 <i class="fa fa-heart"></i>
                             </button>
                            </div>

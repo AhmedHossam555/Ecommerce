@@ -5,6 +5,8 @@ import { WishlistService } from '../../../../shared/services/wishList/wishlist.s
 import { Product } from '../../../../shared/interfaces/product';
 import { CurrencyPipe } from '@angular/common';
 import { UserService } from '../../../../shared/services/user/user.service';
+import { CartService } from '../../../../shared/services/cart/cart.service';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-wishlist',
@@ -15,9 +17,10 @@ import { UserService } from '../../../../shared/services/user/user.service';
 })
 export class WishlistComponent implements OnInit{
   private _WishlistService = inject(WishlistService);
+  private _CartService = inject(CartService);
   private _UserService = inject(UserService);
+  private _toast = inject(HotToastService);
   wishlistProduct: WritableSignal<Product[]> = signal([]);
-
   ngOnInit(): void {
     this._WishlistService.wishlist.subscribe({
       next: (res)=>{
@@ -25,6 +28,22 @@ export class WishlistComponent implements OnInit{
         this.wishlistProduct.update((val)=> val= res);
       }
     })
+  }
+  addProductToCart(product:Product){
+    this._toast.success('Product added to cart successfully',{
+      position:'top-left'
+    })
+    this._CartService.addProductToCart({
+      ...product,
+      quantity: 1
+    })
+  }
+  addProductToWishlist(product:Product){
+    this._toast.success('Product added to wishlist successfully',{
+      position:'top-left'
+    })
+    this._WishlistService.addToWishList(product);
+
   }
   Logout(){
     this._UserService.userInformation.next(null);
