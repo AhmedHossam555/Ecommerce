@@ -1,0 +1,39 @@
+input:focus {
+    box-shadow: none !important;
+    border-color: orange !important;
+}
+.box {
+    display: flex;
+    align-items: start;
+    font-size: 12px !important;
+    span {
+        display: block;
+        
+    }
+    input {
+        display: inline-block;
+        margin-top: 5px;
+        margin-right: 5px;
+    }
+}
+.box.active {
+    border-color: #ff8100 !important;
+    background-color: rgba($color: orange,$alpha: 0.2);
+}
+input[type="radio"] {
+    display: grid;
+    place-content: center;
+    appearance: none;
+    margin: 10% 0 0;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #ccc;
+}
+
+input[type="radio"]:checked {
+    background-color: #ff8100;
+    background-image: url('data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9Jy00IC00IDggOCc+PGNpcmNsZSByPScyJyBmaWxsPScjZmZmJy8+PC9zdmc+');
+}

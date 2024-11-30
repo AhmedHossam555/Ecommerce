@@ -1,1 +1,160 @@
-<p>order works!</p>
+<app-header></app-header>
+<div class="container text-muted pt-5">
+    <div class="row gy-4">
+        <div class="col-md-8">
+            <div class="p-4 shadow-sm border rounded-2 ">
+                 <h5 class="mb-3">
+                    Billing details
+                 </h5>
+                 <form class="border-bottom pb-3" [formGroup]="bilingForm" >
+                    <div class="row gy-3 ">
+                       <div class="col-lg-6">
+                        <label for="first" class="mb-2 fs-14">First name</label>
+                        <input type="text" id="first" class="form-control bg-light " formControlName="first" placeholder="Type here">
+                        @if(bilingForm.get('first')?.errors && (bilingForm.get('first')?.touched || bilingForm.get('first')?.dirty)){
+                            <small class="d-block text-danger pt-1">
+                                @if(bilingForm.get('first')?.getError('required')){
+                                    <span>
+                                        First name is required
+                                    </span>
+                                }
+                            </small>
+                        }   
+                       </div>
+                       <div class="col-lg-6">
+                        <label for="last" class="mb-2 fs-14">Last name</label>
+                        <input type="text" id="last" class="form-control bg-light" placeholder="Type here" formControlName="last">
+                        @if(bilingForm.get('last')?.errors && (bilingForm.get('last')?.touched || bilingForm.get('last')?.dirty)){
+                            <small class="d-block text-danger pt-1">
+                                @if(bilingForm.get('last')?.getError('required')){
+                                    <span>
+                                        Last name is required
+                                    </span>
+                                }
+                            </small>
+                        }  
+                       </div>
+                       <div class="col-lg-6">
+                        <label for="phone" class="mb-2 fs-14">Phone</label>
+                        <input type="tel" id="phone" class="form-control bg-light" placeholder="+20" formControlName="phone">
+                        @if(bilingForm.get('phone')?.errors && (bilingForm.get('phone')?.touched || bilingForm.get('phone')?.dirty)){
+                            <small class="d-block text-danger pt-1">
+                                @if(bilingForm.get('phone')?.getError('required')){
+                                    <span>
+                                        Phone number is required
+                                    </span>
+                                }
+                            </small>
+                        }  
+                       </div>
+                       <div class="col-lg-6">
+                        <label for="email" class="mb-2 fs-14">Email</label>
+                        <input type="email" id="email" class="form-control bg-light" placeholder="example@gmail.com" formControlName="email">
+                        @if(bilingForm.get('email')?.errors && (bilingForm.get('email')?.touched || bilingForm.get('email')?.dirty)){
+                            <small class="d-block text-danger pt-1">
+                                @if(bilingForm.get('email')?.getError('required')){
+                                    <span>
+                                        Email  is required
+                                    </span>
+                                }@else if(bilingForm.get('email')?.getError('email')){
+                                    <span>
+                                       Email is not Valid
+                                    </span>
+                                }
+                            </small>
+                        }  
+                       </div>
+                       <div class="col-lg-6">
+                        <input type="checkbox" id="keep" class="me-1">
+                        <label for="keep" class="fs-14">Keep me up to date on news</label>
+                       </div>
+                    </div>
+                 </form>
+                 <h5 class="py-3">
+                    Shipping info
+                 </h5>
+                 <form action="">
+                    <div class="row gy-3 ">
+                        <div class="col-lg-4">
+                        <div class="box  p-3 rounded-2 border" for="post" (click)="changeRadio($event)">
+                            <input type="radio" name="shipping" id="post" >
+                            <label for="post">
+                                <b>Post Office</b>
+                                 <span>20-30 days via Post</span>
+                            </label>
+                        </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="box p-3 rounded-2 border" for="delivery" (click)="changeRadio($event)">
+                                <input type="radio" name="shipping" id="delivery">
+                                <label for="delivery">
+                                    <b>Express delivery</b>
+                                    <span>
+                                        3-4 days via Fedex
+                                    </span>
+                                </label>
+                            </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="box p-3 rounded-2 border" for="pick" (click)="changeRadio($event)">
+                                    <input type="radio" name="shipping" id="pick">
+                                    <label>
+                                        <b>Self pick-up</b>
+                                        <span>Come to our shop</span>
+                                    </label>
+                                </div>
+                                </div>
+                               
+                     </div>
+                     <div class="row pt-4 gy-3">
+                        <div class="col-lg-9">
+                            <label for="address" class="mb-2 fs-14">Address</label>
+                            <input type="text" id="address" class="form-control bg-light " placeholder="Type here">
+                        </div>
+                        <div class="col-lg-3">
+                            <label for="city" class="mb-2 fs-14">City</label>
+                            <select name="city" id="city" class="form-select bg-light">
+                                <option value="new city">New City</option>
+                                <option value="giza">Giza</option>
+                                <option value="alx">Alx</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-4">
+                                <label for="house" class="mb-2 fs-14">House</label>
+                                <input type="text" id="house" class="form-control bg-light " placeholder="Type here">           
+                        </div>
+                        <div class="col-lg-4">
+                                <label for="code" class="mb-2 fs-14">Postal code</label>
+                                <input type="text" id="code" class="form-control bg-light " placeholder="Type here">
+                        </div>
+                        <div class="col-lg-4">
+                                <label for="zip" class="mb-2 fs-14">Zip</label>
+                                <input type="text" id="zip" class="form-control bg-light " placeholder="Type here">
+                        </div>
+                        <div class="col-12">
+                            <input type="checkbox" name="save" id="save" class="me-1">
+                            <label for="save">Save this address</label>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label for="message" class="mb-2">Message to seller</label>
+                            <textarea name="message" id="message" class="form-control shadow-none bg-light" ></textarea>
+                        </div>
+                     </div>
+                     <div class="mt-3 d-flex justify-content-end">
+                        <button class="btn border me-2 ">Cancel</button>
+                        <button class="btn bg-main  text-white">Continue</button>
+                     </div>
+               
+                 </form>
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-4 shadow-sm border rounded-2">
+                 
+            </div>
+
+        </div>
+    
+    </div>
+</div>
