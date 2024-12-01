@@ -15,7 +15,7 @@ To optimize performance and scalability, the application is modularized and empl
 * Product filtering by category.
 * Zoom in functionality in product details page.
 * Add products to cart or wishlist.
-* Lazy loading of modules.
+* Lazy loading of Components.
 * Checkout products.
 
 # Build With
