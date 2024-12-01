@@ -19,7 +19,7 @@ export class HeaderComponent {
   private _CartService = inject(CartService);
   private _WishlistService =inject(WishlistService);
   private _UserService = inject(UserService);
-  isLogging: WritableSignal<boolean> = signal(false);
+  isLogging: WritableSignal<boolean> = signal(true);
   cartNum: WritableSignal<number> = signal(0);
   wishNum:WritableSignal<number> = signal(0);
   ngOnInit() {
