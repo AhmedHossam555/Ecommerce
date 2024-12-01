@@ -1,7 +1,7 @@
 # Trendzy (Ecommerce App)
 
 # Description
-This Angular E-commerce application provides a seamless shopping experience for users by enabling them to browse products, add items to their cart or wishlist, and complete purchases. The application leverages an API to fetch product data dynamically and incorporates a robust token-based authentication system for security. The authentication tokens are valid for 20 days, while the refresh tokens are set to expire after 10 hours, ensuring secure and reliable access management.
+This Angular E-commerce application offers a smooth and user-friendly shopping experience, empowering users to browse products, add items to their cart or wishlist, and complete purchases. The application leverages an API to fetch product data dynamically and incorporates a robust token-based authentication system for security. The authentication tokens are valid for 20 days, while the refresh tokens are set to expire after 10 hours, ensuring secure and reliable access management.
 
 To optimize performance and scalability, the application is modularized and employs lazy loading, loading Component only when needed. The structure includes distinct modules, such as a User Components, where users can manage their personal information, view order history, and update their profiles. This modular approach ensures faster load times and improved maintainability.
 
