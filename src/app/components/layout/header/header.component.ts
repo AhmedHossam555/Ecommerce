@@ -6,6 +6,7 @@ import { WishlistService } from '../../../shared/services/wishList/wishlist.serv
 import { OverlayWishlistDirective } from '../../../shared/directives/overlay-wishlist.directive';
 import { WishlistComponent } from "../wishlist/wishlist.component";
 import { RouterLink } from '@angular/router';
+import { UserService } from '../../../shared/services/user/user.service';
 
 @Component({
   selector: 'app-header',
@@ -17,9 +18,21 @@ import { RouterLink } from '@angular/router';
 export class HeaderComponent {
   private _CartService = inject(CartService);
   private _WishlistService =inject(WishlistService);
+  private _UserService = inject(UserService);
+  isLogging: WritableSignal<boolean> = signal(false);
   cartNum: WritableSignal<number> = signal(0);
   wishNum:WritableSignal<number> = signal(0);
   ngOnInit() {
+    this._UserService.userInformation.subscribe({
+      next: (res)=>{
+        if(res ){
+          this.isLogging.set(true);
+        }else{
+          this.isLogging.set(false);
+        }
+      }
+    })
+    
     this._CartService.cartNum.subscribe({
       next: (res)=>{
         this.cartNum.set(res);

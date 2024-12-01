@@ -16,10 +16,19 @@
                    <i class="fa-solid fa-question help" style="font-size: 9px;"></i>
                     <span class="text-uppercase color-link" style="margin-top: 2px;">hellp</span>
                 </a>
-                <a routerLink="/user/profile" style="cursor: pointer;">
-                    <img src="assets/images/avatar.jpg" alt="Avatar" width="32" height="32" class="rounded-5">
-                    <span class="text-uppercase color-link ms-2  d-inline-block d-md-none">My Profile</span>
-                </a>
+                @if(isLogging()){
+                    <a routerLink="/user/profile" style="cursor: pointer;">
+                        <img src="assets/images/avatar.jpg" alt="Avatar" width="32" height="32" class="rounded-5">
+                        <span class="text-uppercase color-link ms-2  d-inline-block d-md-none">My Profile</span>
+                    </a>
+                }
+                @else {
+                    <a routerLink="/login" class="text-muted me-3" style="cursor: pointer;">
+                        Login
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                    </a>
+                }
+                  
             </div>
         </div>
     </div>
