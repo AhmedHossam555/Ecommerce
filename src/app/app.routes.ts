@@ -10,5 +10,7 @@ export const routes: Routes = [
     {path:'login',loadComponent:()=>import('../app/components/auth/login/login.component').then((c)=>c.LoginComponent),title:'Login'},
     {path:'register',loadComponent:()=>import('../app/components/auth/register/register.component').then((c)=>c.RegisterComponent),title:'register'},
     {path:'checkout',loadComponent: ()=> import('../app/components/layout/check-out/check-out.component').then((c)=>c.CheckOutComponent),title:'checkout'},
-    {path: 'checkout/success',loadComponent: ()=> import('../app/components/layout/check-out/success/success.component').then((c)=> c.SuccessComponent),title:'success'}
+    {path: 'checkout/success',loadComponent: ()=> import('../app/components/layout/check-out/success/success.component').then((c)=> c.SuccessComponent),title:'success'},
+    {path:'not-found',loadComponent: ()=> import('../app/components/layout/error-page/error-page.component').then((c)=>c.ErrorPageComponent),title: 'not-found'},
+    {path:'**', redirectTo:'not-found',pathMatch:'full'},
 ];
