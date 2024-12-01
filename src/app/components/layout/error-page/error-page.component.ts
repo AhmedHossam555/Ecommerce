@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-error-page',
@@ -8,5 +9,8 @@ import { Component } from '@angular/core';
   styleUrl: './error-page.component.scss'
 })
 export class ErrorPageComponent {
-
+  private _Router = inject(Router);
+  backToHome(){
+    this._Router.navigate(['/']);
+  }
 }

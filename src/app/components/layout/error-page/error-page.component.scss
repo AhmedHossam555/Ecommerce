@@ -1,0 +1,27 @@
+img {
+    width: 70%;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 35px;
+}
+h4 {
+    color: #666;
+    font-weight: bolder;
+    font-size: 50px;
+    span {
+        font-size: 50px;
+    }
+}
+p {
+    font-weight: bold;
+    font-size: 22px;
+}
+span{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
