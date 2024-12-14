@@ -33,5 +33,6 @@ export class ProfileComponent {
 Logout(){
   this._UserService.userInformation.next(null);
   window.localStorage.removeItem('token');
+  
 }
 }
