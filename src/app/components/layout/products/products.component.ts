@@ -29,7 +29,6 @@ export class ProductsComponent implements OnInit {
   getALlProduct(){
     this._ProductService.getProduct().subscribe({
       next: (res)=>{
-        console.log(res);
         this.products.set(res);
       },
       error: (err)=>{

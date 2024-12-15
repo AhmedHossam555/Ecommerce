@@ -25,7 +25,6 @@ export class WishlistComponent implements OnInit{
   ngOnInit(): void {
     this._WishlistService.wishlist.subscribe({
       next: (res)=>{
-        console.log(res)
         this.wishlistProduct.update((val)=> val= res);
       }
     })
@@ -46,8 +45,7 @@ export class WishlistComponent implements OnInit{
     this._WishlistService.addToWishList(product);
   }
   Logout(){
-    this._UserService.userInformation.next(null);
-    window.localStorage.removeItem('token');
+    this._UserService.clearSession();
   }
 
 }

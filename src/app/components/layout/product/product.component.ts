@@ -22,7 +22,6 @@ export class ProductComponent{
   wishList: Product[] = [];
   constructor(private toast: HotToastService) {}
   ngOnInit() {
-    console.log(this.product)
       this.getWishList();
       // this.filter();
   }

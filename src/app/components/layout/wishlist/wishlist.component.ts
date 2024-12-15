@@ -25,6 +25,9 @@ export class WishlistComponent implements OnInit{
     this._wishlistService.wishlist.subscribe({
       next: (res)=>{
         this.wishList.update((val)=> val = res);
+      },
+      error: (error)=>{
+        console.log(error);
       }
     })
     this._wishlistService.wishlistNum.subscribe({
