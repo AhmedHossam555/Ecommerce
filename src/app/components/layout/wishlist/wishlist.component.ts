@@ -42,7 +42,9 @@ export class WishlistComponent implements OnInit{
      });
     this._wishlistService.removeFromWishList(product);
   }
-  addProductToCart(product:Product){
+  addProductToCart(product:Product, event:Event){
+    const button = event.currentTarget as HTMLElement;
+    button.classList.add('disable');
     this._toast.success('Product added to cart successfully',{
       position: 'top-left',
      });

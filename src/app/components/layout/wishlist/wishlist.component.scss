@@ -8,6 +8,7 @@
     z-index: 55555;
     transition: all 0.4s ease;
 }
+
 .wishlist.active {  
     right: 0;
 }
@@ -36,8 +37,12 @@
     button.btn {
         background-color: #f07e09 !important;
     }
+    button.btn.disable {
+      background-color: #ccc !important;
+      color: #333 !important;
+      pointer-events: none;
+    }
 }
-
 .control {
     font-size: 9px;
     font-weight: bolder;

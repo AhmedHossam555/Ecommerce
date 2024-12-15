@@ -8,7 +8,7 @@ import { Product } from '../interfaces/product';
 export class FilterPipe implements PipeTransform {
 
   transform(products: Product[],value:string | any): any {
-    if(value == 'default'){
+    if(value == "default"){
       return products;
     }
     if(value == "lowtohigh"){

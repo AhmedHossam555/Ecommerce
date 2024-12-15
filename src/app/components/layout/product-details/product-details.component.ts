@@ -105,6 +105,7 @@ export class ProductDetailsComponent implements OnInit{
   product?:Product;
   CategorieProduct:WritableSignal<Product[]> = signal([]);
   constructor(private _ActivatedRoute:ActivatedRoute){
+  
   }
   ngOnInit(): void {
     this._ActivatedRoute.params.subscribe({
@@ -115,7 +116,7 @@ export class ProductDetailsComponent implements OnInit{
     this.getProduct();
     setTimeout(()=>{
       this.getProductCategories();
-    },200)
+    },50)
   }
   getProduct(){
     this._ProductService.getSingleProduct(this.id()).subscribe({
@@ -126,9 +127,8 @@ export class ProductDetailsComponent implements OnInit{
   }
   getProductCategories(){
 
-    this._ProductService.getProductCategories(this.product?.category.id).subscribe({
+    this._ProductService.getProductCategories(this.product?.category?.id || 1).subscribe({
       next:(res)=>{
-        console.log(res)
         this.CategorieProduct.set(res);
       },
       error: (err)=>{

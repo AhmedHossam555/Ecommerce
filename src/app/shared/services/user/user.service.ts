@@ -122,7 +122,7 @@ export class UserService {
   getProfile():Observable<any>{
     return this._HttpClient.get(`${Enviroment.baseUrl}/auth/profile`,{
       headers:{
-        "Authorization": `Bearer ${window.localStorage.getItem('access_token')!}`,
+        "Authorization": `Bearer ${window.localStorage.getItem('access_token')}`,
       }
     })
   }
