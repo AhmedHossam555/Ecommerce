@@ -3,16 +3,19 @@ import { Product } from '../../../shared/interfaces/product';
 import { InfiniteScrollDirective } from 'ngx-infinite-scroll';
 import { ProductComponent } from '../product/product.component';
 import { ProductService } from '../../../shared/services/product/product.service';
+import { FilterPipe } from '../../../shared/pipe/filter.pipe';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [ InfiniteScrollDirective,  ProductComponent],
+  imports: [ InfiniteScrollDirective,  ProductComponent, FilterPipe,FormsModule],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
 export class ProductsComponent implements OnInit {
+  sortValue:string = 'default';
+  
  
-
   products: WritableSignal<Product[]> = signal([]);
   private _ProductService = inject(ProductService);
 

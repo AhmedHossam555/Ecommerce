@@ -8,12 +8,12 @@
         <div class="col-xs-12 col-sm-4">
             <div class="d-flex align-items-center justify-content-end">
                 <label for="" class="fs-5 me-3">Sort by:</label>
-                <select name="" id="" class="form-select w-50">
-                    <option value="">Default</option>
-                    <option value="">Price: Low to High</option>
-                    <option value="">Price: High to Low</option>
-                    <option value="">A to Z</option>
-                    <option value="">z to A</option>
+                <select name="" id="" class="form-select w-50" [(ngModel)]="sortValue">
+                    <option value="default">Default</option>
+                    <option value="lowtohigh">Price: Low to High</option>
+                    <option value="hightolow">Price: High to Low</option>
+                    <option value="atoz">A to Z</option>
+                    <option value="ztoa">z to A</option>
                 </select>    
             </div>
                    
@@ -27,7 +27,7 @@
     [infiniteScrollThrottle]="150"
     (scrolled)="onScroll()"
      >
-        @for (prod of products(); track $index) {
+        @for (prod of products() | filterSort: sortValue ; track $index) {
             <div class="col-xs-12  col-sm-6 col-md-3 col-lg-2" style="padding: 15px 7px; ">
                 <app-product [product]="prod"></app-product>
             </div>
