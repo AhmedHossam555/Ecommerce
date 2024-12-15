@@ -63,9 +63,7 @@ export class UserService {
     )
   }
 
-  private clearSession(){
 
-  }
   storeToken(accessToken:string,refreshToken:string){
     window.localStorage.setItem('access_token', accessToken );
     window.localStorage.setItem('refresh_token', refreshToken);
@@ -92,11 +90,22 @@ export class UserService {
     return this._HttpClient.post(`${Enviroment.baseUrl}/auth/refresh-token`,refreshToken).pipe(
       switchMap((response:any)=>{
         this.storeToken(response.access_token, response.refresh_token);
-
+        this.decodedToken(response.access_token);
+        this.ScheduleTokenRefresh();
         return of(response)
       })
     )
     
+  }
+  private clearSession(){
+    window.localStorage.removeItem('access_token');
+    window.localStorage.removeItem('refresh_token');
+    window.clearTimeout(this.refreshTokenTimeOut);
+    this.token = null;
+    this.userInformation.next(null);
+  }
+  getToken(): string | null {
+    return this.token;
   }
   userToken(){
     if(window.localStorage.getItem('token')){
