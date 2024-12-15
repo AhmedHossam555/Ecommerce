@@ -34,8 +34,8 @@ export class LoginComponent {
         })
     ).subscribe({
       next: (res)=>{
-        window.localStorage.setItem('token',res.access_token);
-        this._UserService.userToken();
+        // window.localStorage.setItem('token',res.access_token);
+        // this._UserService.userToken();
         this._Router.navigate(['/']);
       },
       error: ({error})=>{
