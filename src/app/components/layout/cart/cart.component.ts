@@ -48,6 +48,9 @@ export class CartComponent {
     this._CartSevice.removeProductFromCart(product);
   }
   updateQuantity(value: number, product: Product, operator:string){
+    if(value === 0){
+      this._CartSevice.removeProductFromCart(product)
+    }
     if(operator == '+'){
       value++;
     }else{

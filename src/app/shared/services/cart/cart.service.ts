@@ -45,7 +45,7 @@ export class CartService  {
         this.cart.splice(index,1);
       }
     });
-     this.cartNum.next(this.cart.length);
+    this.cartNum.next(this.cart.length);
     window.localStorage.setItem('cart',JSON.stringify(this.cart));
     this.cartProduct.next(JSON.parse(window.localStorage.getItem('cart') || '[]'));
     this.totalPrice();

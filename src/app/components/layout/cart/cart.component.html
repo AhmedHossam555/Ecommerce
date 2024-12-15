@@ -19,7 +19,7 @@
                         {{product.price | currency}}
                     </p>
                     <p class="bg-main rounded-5 p-2  px-3 text-white control">
-                        <button class="border-0 bg-main" type="button" >
+                        <button class="border-0 bg-main" type="button" (click)="updateQuantity(product.quantity!,product, '-')" >
                             <i class="fa-solid fa-minus text-white"></i>
                         </button>
                         <span class="quantity">

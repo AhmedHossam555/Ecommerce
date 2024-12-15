@@ -61,7 +61,6 @@ export class ProductComponent{
  
   ProductInWishlist(item:any){
     const val = this.wishList.find((prod)=>prod.id === item.id);
-    console.log(val);
     return val;
   }
   getWishList(){
