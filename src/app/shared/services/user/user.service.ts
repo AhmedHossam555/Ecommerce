@@ -49,7 +49,6 @@ export class UserService {
     }catch(error){
       console.log("Invalid token",error);
       this.clearSession();
-
     }
 
   }
@@ -63,6 +62,7 @@ export class UserService {
       })
     )
   }
+
   private clearSession(){
 
   }
@@ -70,6 +70,33 @@ export class UserService {
     window.localStorage.setItem('access_token', accessToken );
     window.localStorage.setItem('refresh_token', refreshToken);
     this.token = accessToken;
+  }
+  private ScheduleTokenRefresh(){
+    if(!this.token) return;
+    const decoded:TokenPayload = jwtDecode(this.token);
+    const expiredTime = decoded.exp * 1000; // convert expired time to millseconed
+    const currentTime = Date.now();
+    const timeUntillExpired = expiredTime - currentTime;
+    console.log(`Access token expired ${timeUntillExpired / 1000 /60} minutes`);
+    const refreshTokenDuration = 10 * 60 * 60 * 1000;  // 10 hours in millsecond 
+    const refreshTime = refreshTokenDuration - 10 * 60 * 1000; // refresh token before 10 minutes from 10 hours
+    if(refreshTime > 0){
+      this.refreshTokenTimeOut = setTimeout(()=> this.refreshToken(),refreshTime)
+    }
+  }
+  refreshToken():Observable<any>{
+    const refreshToken = window.localStorage.getItem('refresh_token');
+    if(!refreshToken){
+      return of(null)
+    }
+    return this._HttpClient.post(`${Enviroment.baseUrl}/auth/refresh-token`,refreshToken).pipe(
+      switchMap((response:any)=>{
+        this.storeToken(response.access_token, response.refresh_token);
+
+        return of(response)
+      })
+    )
+    
   }
   userToken(){
     if(window.localStorage.getItem('token')){
