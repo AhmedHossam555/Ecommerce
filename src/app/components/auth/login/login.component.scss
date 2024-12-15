@@ -43,3 +43,16 @@ input.ng-invalid:where(.ng-dirty,.ng-touched){
 input.ng-invalid:where(.ng-dirty,.ng-touched) + i {
     color: #fb0808;
 }
+.first {
+  background-image: url('../../../../assets/images/login-bg.jpg');
+  top: 0;
+  left:0;
+  width: 100%;
+  height: 100%;  
+  background-size: cover;
+}
+@media (max-width: 768px) {
+  .first {
+    min-height: 500px;
+  }
+}
