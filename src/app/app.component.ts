@@ -14,8 +14,8 @@ export class AppComponent {
   private _UserService = inject(UserService);
   private _Plat = inject(PLATFORM_ID);
   ngOnInit() {
-    if(isPlatformBrowser(this._Plat)){
-      this._UserService.userToken();
-    }
+    // if(isPlatformBrowser(this._Plat)){
+    //   this._UserService.userToken();
+    // }
   }
 }
